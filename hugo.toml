@@ -52,15 +52,15 @@ url = "/"
 
 [[params.menu]]
 name = "posts"
-url = "/posts"
+url = "/website/posts"
 
 [[params.menu]]
 name = "projects"
-url = "/projects"
+url = "/website/projects"
 
 [[params.menu]]
 name = "about"
-url = "/about"
+url = "/website/about"
 
 # Blog entries
 [[params.blog]]
