@@ -1,0 +1,195 @@
+{{ define "main" }}
+<div class="w-full md:w-3/4 lg:w-1/2 mx-auto px-4 py-12">
+    <h1 class="text-3xl md:text-5xl font-bold mb-8 md:mb-12">{{ .Title }}</h1>
+    
+    <!-- Search Bar -->
+    <div class="mb-6 md:mb-8">
+        <input 
+            type="text" 
+            id="project-search" 
+            placeholder="Search projects..." 
+            class="w-full px-4 py-2 rounded-lg bg-[#1E1E1E] border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-gray-600 transition-all duration-300"
+        >
+    </div>
+    
+    <!-- YouTube Video Modal -->
+    <div id="youtube-modal" class="fixed inset-0 bg-black/80 z-50 flex items-center justify-center hidden">
+        <div class="relative w-full max-w-4xl mx-auto">
+            <button id="close-modal" class="absolute -top-10 right-0 text-white hover:text-gray-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <div class="aspect-w-16 aspect-h-9">
+                <iframe id="youtube-iframe" class="w-full h-full" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+    
+    <div id="projects-grid" class="grid grid-cols-1 gap-6 md:gap-8 max-w-2xl mx-auto">
+        {{ range .Site.Params.projects }}
+        <div class="project-card relative overflow-hidden rounded-lg bg-[#121212] border border-gray-800 transition-all duration-300 group" data-title="{{ lower .title }}">
+            <div class="aspect-w-16 aspect-h-10 overflow-hidden relative">
+                <!-- Image with blur filter, only if image exists -->
+                {{ if ne .image "" }}
+                    <img src="{{ .image }}" alt="{{ .title }}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 blur-img">
+                {{ else }}
+                    <!-- If no image, show a pure black background -->
+                    <div class="w-full h-full bg-black"></div>
+                {{ end }}
+                
+                <!-- Dark overlay for the bottom half -->
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/90 to-transparent z-20"></div>
+                
+                <!-- Content section with text on dark background -->
+                <div class="absolute inset-0 z-30 p-3 md:p-5 flex flex-col justify-end transform transition-transform duration-500 translate-y-0 group-hover:translate-y-[-15px]">
+                    <h3 class="text-2xl md:text-3xl font-bold mb-1.5 md:mb-2 text-white line-clamp-2 mobile-text-xl">{{ .title }}</h3>
+                    <div class="flex flex-wrap gap-1 md:gap-1.5 mb-1.5 md:mb-2.5">
+                        {{ $techs := split .tech "," }}
+                        {{ range $tech := $techs }}
+                            {{ $trimmedTech := trim $tech " " }}
+                            <span class="px-1.5 py-0.5 border border-white/60 rounded-md text-xs md:text-sm font-medium text-white mobile-text-xs">{{ $trimmedTech }}</span>
+                        {{ end }}
+                    </div>
+                    <p class="hidden md:block text-sm text-gray-300 mb-3 line-clamp-2 mobile-text-sm">{{ .description }}</p>
+                    
+                    <div class="flex gap-2">
+                        <a href="{{ .link }}" class="bg-white/90 hover:bg-white text-black text-xs md:text-sm font-medium py-1 md:py-1.5 px-2.5 md:px-3 rounded-md inline-block transition-all duration-300 transform w-fit flex items-center mobile-text-xs">
+                            Learn More
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 ml-1 transform group-hover:translate-x-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </a>
+                        
+                        {{ if .youtube_url }}
+                        <button 
+                            class="youtube-button bg-red-600/90 hover:bg-red-600 text-white text-xs md:text-sm font-medium py-1 md:py-1.5 px-2.5 md:px-3 rounded-md inline-block transition-all duration-300 transform w-fit flex items-center mobile-text-xs"
+                            data-youtube-url="{{ .youtube_url }}">
+                            Watch Demo
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/>
+                            </svg>
+                        </button>
+                        {{ end }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{ end }}
+    </div>
+</div>
+
+<style>
+/* Previous styles remain the same */
+
+@media (max-width: 768px) {
+    /* Increase text sizes for mobile */
+    .mobile-text-xl {
+        font-size: 1.5rem; /* Larger title */
+        line-height: 1.2;
+    }
+    
+    .mobile-text-xs {
+        font-size: 0.875rem; /* Slightly larger small text */
+    }
+    
+    .mobile-text-sm {
+        font-size: 1rem; /* Larger description text */
+    }
+    
+    .project-card {
+        max-height: 350px; /* Slightly taller to accommodate larger text */
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // YouTube modal functionality
+    const modal = document.getElementById('youtube-modal');
+    const iframe = document.getElementById('youtube-iframe');
+    const closeButton = document.getElementById('close-modal');
+    const youtubeButtons = document.querySelectorAll('.youtube-button');
+    
+    function getYoutubeEmbedUrl(url) {
+        // Extract video ID from various YouTube URL formats
+        let videoId = '';
+        if (url.includes('youtube.com/watch')) {
+            videoId = new URL(url).searchParams.get('v');
+        } else if (url.includes('youtu.be/')) {
+            videoId = url.split('youtu.be/')[1].split('?')[0];
+        }
+        
+        if (videoId) {
+            return `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+        }
+        return null;
+    }
+    
+    function openYouTubeModal(event) {
+        // Prevent event propagation to avoid any potential conflicts
+        event.preventDefault();
+        event.stopPropagation();
+
+        const youtubeUrl = this.getAttribute('data-youtube-url');
+        const embedUrl = getYoutubeEmbedUrl(youtubeUrl);
+        
+        if (embedUrl) {
+            iframe.src = embedUrl;
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+    }
+    
+    // Use event delegation to handle dynamic content and mobile touch events
+    document.getElementById('projects-grid').addEventListener('click', function(event) {
+        const youtubeButton = event.target.closest('.youtube-button');
+        if (youtubeButton) {
+            openYouTubeModal.call(youtubeButton, event);
+        }
+    });
+    
+    closeButton.addEventListener('click', function() {
+        iframe.src = '';
+        modal.classList.add('hidden');
+        document.body.style.overflow = ''; // Restore scrolling
+    });
+    
+    // Close on click outside of content
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            iframe.src = '';
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // Close on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+            iframe.src = '';
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // Search functionality
+    const searchInput = document.getElementById('project-search');
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase().trim();
+        
+        projectCards.forEach(card => {
+            const title = card.getAttribute('data-title');
+            
+            if (searchTerm === '' || title.includes(searchTerm)) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+});
+</script>
+{{ end }}

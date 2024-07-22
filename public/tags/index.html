@@ -1,173 +1,360 @@
 <!DOCTYPE html>
-<html lang="en-us"
-  dir="ltr">
+<html lang="en" class="dark">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1414&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tags - Rayan Crasta</title>
+        
 
-  <head>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width"><meta name="description" content="" />
+<link rel="icon" href="http://localhost:1414/images/profile/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="http://localhost:1414/images/profile/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1414/images/profile/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1414/images/profile/favicon-16x16.png">
+<link rel="manifest" href="http://localhost:1414/images/profile/site.webmanifest">
+        
+        <style>
+            html, body {
+                background-color: #121212;
+                color: #f3f4f6;
+            }            
+            .border {
+                border-color: #374151;
+            }            
+            .carousel-item {
+                display: inline-block;
+                margin: 0 1rem;
+            }            
+            .flex {
+                display: flex;
+            }
+            .flex-col {
+                flex-direction: column;
+            }
+            
+            @media (min-width: 768px) {
+                .md\:flex-row {
+                    flex-direction: row;
+                }
+            }
+            
+            .tech-carousel {
+                overflow: hidden;
+                width: 100%;
+                padding: 1rem 0;
+            }
+            
+            .carousel-track {
+                white-space: nowrap;
+            }
+        </style>
+        
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+        <script>
+            
+            if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        </script>
+        <style>
+            :root {
+                color-scheme: dark;
+            }
+            
+            body {
+                @apply bg-[#121212] text-gray-100;
+            }
 
-<title>
+            .tech-icon {
+                filter: grayscale(100%) brightness(200%);
+                transition: all 0.3s ease;
+            }
+            .tech-icon:hover {
+                filter: none;
+            }
+            
+            @keyframes scroll {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(-100%);
+                }
+            }
+            
+            .tech-carousel {
+                width: 100%;
+                padding: 1rem 0;
+            }
+            
+            .tech-track {
+                width: fit-content;
+                animation: scroll 20s linear infinite;
+            }
+            
+            .tech-track:hover {
+                animation-play-state: paused;
+            }
+            
+            .tech-slide {
+                float: left;
+            }
+        </style>
+    </head>
+    <body class="min-h-screen bg-[#121212] text-gray-100">
+        
+<head>
     
-    Tags | Rayan Crasta
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-</title>
-
-<link rel="canonical" href="https://rayancrasta.github.io/website/tags/" />
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/website/assets/combined.min.a6824bbee0d90d5af09fed9b70395ce7076b615e315037455d903314e96ef91b.css" media="all">
-
-
-
-
-
-
-  </head>
-
-  
-
-  
-  
-  
-
-  <body class="auto">
-
-    <div class="content">
-      <header>
-        
-
-<div class="header">
-
     
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C0RTF18BT4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-    <h1 class="header-title">Rayan Crasta</h1>
-
-    <div class="flex">
+        gtag('config', 'G-C0RTF18BT4');
+    </script>
+    
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+        }
         
-
-        
-        
-        <p class="small ">
-            <a href="/">
-                /home
-            </a>
-        </p>
-        
-        <p class="small ">
-            <a href="/posts">
-                /posts
-            </a>
-        </p>
-        
-        <p class="small ">
-            <a href="/projects">
-                /projects
-            </a>
-        </p>
-        
-        <p class="small ">
-            <a href="/about">
-                /about
-            </a>
-        </p>
-        
-        
+         
+        * {
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<header class="py-4 xs:py-5 sm:py-6 md:py-8 relative">
+    <div class="max-w-6xl mx-auto px-3 xs:px-4 sm:px-5 md:px-6">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 xs:gap-4">
+            <div class="flex justify-between items-center">
+                <a href="http://localhost:1414/" class="text-3xl xs:text-4xl sm:text-5xl md:text-4xl font-bold text-white hover:text-gray-300 transition-colors duration-300">
+                    Rayan Crasta
+                </a>
+                
+                <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-white focus:outline-none">
+                    <svg class="w-5 xs:w-6 h-5 xs:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>            
+            
+            <nav class="hidden md:flex flex-wrap justify-center items-center gap-3 md:gap-4 lg:gap-6">
+                
+                <a href="http://localhost:1414/experience/" class="inline-block text-sm md:text-base lg:text-lg text-gray-300 hover:text-white transition-colors duration-300 ">Experience</a>
+                
+                <a href="http://localhost:1414/projects/" class="inline-block text-sm md:text-base lg:text-lg text-gray-300 hover:text-white transition-colors duration-300 ">Projects</a>
+                
+                <a href="http://localhost:1414/blogs/" class="inline-block text-sm md:text-base lg:text-lg text-gray-300 hover:text-white transition-colors duration-300 ">Blogs</a>
+                
+                <a href="http://localhost:1414/thoughts/" class="inline-block text-sm md:text-base lg:text-lg text-gray-300 hover:text-white transition-colors duration-300 ">Thoughts</a>
+                
+                <a href="http://localhost:1414/contact/" class="inline-block text-sm md:text-base lg:text-lg text-gray-300 hover:text-white transition-colors duration-300 ">Contact Me</a>
+                
+            </nav>
+        </div>
     </div>
 
     
-
-</div>
-      </header>
-
-      <main class="main">
-        
-
-<div class="list-container">
-
-    
-<div class="breadcrumbs">
-    
-    <a href="/website/">Home</a>
-    <span class="breadcrumbs-separator"> > </span>
-    
-    <a class="breadcrumbs-current" href="/website/tags/">Tags</a>
-</div>
-
-
-    <h1>Tags</h1>
-    
-
-    
-
-    
-    
-    
-    
-
-    
-
-    
-
-    
-
-</div>
-
-      </main>
+    <div id="mobile-menu" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden transition-all duration-300">
+        <div class="flex flex-col h-full">
+            <div class="flex justify-between items-center p-4 xs:p-5 sm:p-6 border-b border-gray-800">
+                <span class="text-lg xs:text-xl sm:text-2xl font-bold text-white">Menu</span>
+                <button id="mobile-menu-close" class="text-gray-300 hover:text-white focus:outline-none">
+                    <svg class="w-5 xs:w-6 h-5 xs:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <nav class="flex flex-col p-4 xs:p-5 sm:p-6 space-y-3 xs:space-y-4">
+                
+                <a href="http://localhost:1414/experience/" class="text-lg xs:text-xl sm:text-2xl text-gray-300 hover:text-white transition-colors duration-300 ">Experience</a>
+                
+                <a href="http://localhost:1414/projects/" class="text-lg xs:text-xl sm:text-2xl text-gray-300 hover:text-white transition-colors duration-300 ">Projects</a>
+                
+                <a href="http://localhost:1414/blogs/" class="text-lg xs:text-xl sm:text-2xl text-gray-300 hover:text-white transition-colors duration-300 ">Blogs</a>
+                
+                <a href="http://localhost:1414/thoughts/" class="text-lg xs:text-xl sm:text-2xl text-gray-300 hover:text-white transition-colors duration-300 ">Thoughts</a>
+                
+                <a href="http://localhost:1414/contact/" class="text-lg xs:text-xl sm:text-2xl text-gray-300 hover:text-white transition-colors duration-300 ">Contact Me</a>
+                
+            </nav>
+            <div class="mt-auto p-4 xs:p-5 sm:p-6 border-t border-gray-800">
+                <div class="flex items-center justify-center">
+                    <span class="text-sm xs:text-base sm:text-lg text-gray-300 mr-2">Local Time:</span>
+                    <div id="mobile-local-time" class="text-sm xs:text-base sm:text-lg text-gray-300"></div>
+                </div>
+            </div>
+        </div>
     </div>
+</header>
 
-    <footer>
-      <p>Powered by
-    <a href="https://gohugo.io/">Hugo</a>
-    and
-    <a href="https://github.com/tomfran/typo">tomfran/typo</a>
-</p>
-
-
-    </footer>
-
-  </body>
-
-  <script>
-
-  function isAuto() {
-    return document.body.classList.contains("auto");
-  }
-
-  function setTheme() {
-    if (!isAuto()) {
-      return
+<script>
+    
+    function addEnhancedTouchFriendlyClick(element, handler) {
+        let touchStartTime, touchStartX, touchStartY;
+        
+        element.addEventListener('touchstart', function(e) {
+            touchStartTime = new Date().getTime();
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+        }, { passive: true });
+        
+        element.addEventListener('touchend', function(e) {
+            const touchEndTime = new Date().getTime();
+            const touchEndX = e.changedTouches[0].clientX;
+            const touchEndY = e.changedTouches[0].clientY;
+            
+            
+            const touchDuration = touchEndTime - touchStartTime;
+            const isShortTap = touchDuration < 500; 
+            const isSmallMovement = 
+                Math.abs(touchEndX - touchStartX) < 10 && 
+                Math.abs(touchEndY - touchStartY) < 10;
+            
+            if (isShortTap && isSmallMovement) {
+                e.preventDefault();
+                handler.call(this, e);
+            }
+        });
+        
+        
+        element.addEventListener('click', function(e) {
+            handler.call(this, e);
+        });
     }
 
-    document.body.classList.remove("auto");
-    let cls = "light";
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      cls = "dark";
+    
+    function updateLocalTime() {
+        const timeElements = document.querySelectorAll('#local-time, #mobile-local-time');
+        timeElements.forEach(element => {
+            if (element) {
+                const now = new Date();
+                const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                element.textContent = timeString;
+            }
+        });
+    }
+    updateLocalTime();
+    setInterval(updateLocalTime, 1000);
+
+    
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    function toggleMobileMenu() {
+        const isHidden = mobileMenu.classList.contains('hidden');
+        if (isHidden) {
+            mobileMenu.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; 
+        } else {
+            mobileMenu.classList.add('hidden');
+            document.body.style.overflow = ''; 
+        }
     }
 
-    document.body.classList.add(cls);
-  }
+    
+    addEnhancedTouchFriendlyClick(mobileMenuButton, toggleMobileMenu);
+    addEnhancedTouchFriendlyClick(mobileMenuClose, toggleMobileMenu);
 
-  function invertBody() {
-    document.body.classList.toggle("dark");
-    document.body.classList.toggle("light");
-  }
+    
+    const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+    mobileMenuLinks.forEach(link => {
+        addEnhancedTouchFriendlyClick(link, (e) => {
+            
+            window.location.href = link.href;
+            
+            
+            toggleMobileMenu();
+        });
+    });
 
-  if (isAuto()) {
-    window.matchMedia('(prefers-color-scheme: dark)').addListener(invertBody);
-  }
+    
+    document.addEventListener('touchmove', function(e) {
+        if (e.scale !== 1) { 
+            e.preventDefault(); 
+        }
+    }, { passive: false });
 
-  setTheme();
+    
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', function(event) {
+        const now = new Date().getTime();
+        if (now - lastTouchEnd <= 300) {
+            event.preventDefault();
+        }
+        lastTouchEnd = now;
+    }, false);
 
+    
+    mobileMenuLinks.forEach(link => {
+        link.addEventListener('touchstart', function() {
+            this.style.opacity = '0.7';
+        });
+        link.addEventListener('touchend', function() {
+            this.style.opacity = '1';
+        });
+        link.addEventListener('touchcancel', function() {
+            this.style.opacity = '1';
+        });
+    });
 </script>
+        <main>
+            
+<div class="container mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-8">Tags</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+    </div>
+</div>
 
-</html>
+        </main>
+        
+<footer class="mt-8 text-center">
+    <div class="max-w-3xl mx-auto">
+        <div class="border-t border-gray-800 pt-5">
+            <div class="flex flex-col items-center justify-center gap-2">                
+                <p class="text-gray-500 text-xm ">© 2026 Rayan Crasta</p>
+                <p class="text-gray-500 text-xm">Built using <a href="https://gohugo.io/" target="_blank" class="animated-link text-gray-400 hover:text-gray-200">Hugo</a> / <a href="https://github.com/prxshetty/hugo-noir" target="_blank" class="animated-link text-gray-400 hover:text-gray-200">hugo-noir</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<style>
+    .animated-link {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+    }
+    
+    .animated-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 1px;
+        bottom: -1px;
+        left: 0;
+        background-color: #ffffff;
+        transition: width 0.3s ease-in-out;
+    }
+    
+    .animated-link:hover::after {
+        width: 100%;
+    }
+</style> 
+
+    </body>
+</html> 

@@ -1,0 +1,273 @@
+{{ define "main" }}
+<div class="w-full md:w-4/5 lg:w-3/5 mx-auto px-4 md:px-14 py-12">
+<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 md:mb-8">{{ .Title }}</h1>
+    
+    <!-- Search Bar -->
+    <div class="mb-6 md:mb-8 relative w-full">
+        <input 
+            type="text" 
+            id="project-search" 
+            placeholder="Search projects..." 
+            class="w-full px-4 py-2 pl-10 text-base rounded-lg bg-transparent border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-gray-600 transition-all duration-300"
+        >
+        <svg xmlns="http://www.w3.org/2000/svg" class="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+    </div>
+    
+    <!-- Tag Filter Section -->
+    <div class="mb-6 md:mb-8">
+        <div id="tag-filter" class="flex flex-wrap gap-2 justify-start">
+            <!-- Tags will be dynamically populated here -->
+        </div>
+    </div>
+    
+    <!-- YouTube Video Modal -->
+    <div id="youtube-modal" class="fixed inset-0 bg-black/90 z-50 flex items-center justify-center hidden">
+        <div class="relative w-full max-w-6xl h-[80vh] mx-auto">
+            <button id="close-modal" class="absolute -top-10 right-0 text-white hover:text-gray-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <div class="w-full h-full">
+                <iframe id="youtube-iframe" class="w-full h-full rounded-lg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+    
+    <div id="projects-grid" class="grid grid-cols-1 gap-5 md:gap-6 max-w-4xl mx-auto md:mx-0">
+        {{ range .Site.Params.projects }}
+        <div 
+            class="project-card relative overflow-hidden rounded-lg bg-[#121212] border border-gray-800 transition-all duration-300 group flex flex-col" 
+            data-title="{{ lower .title }}"
+            data-tags="{{ lower (delimit (split .tech ",") " ") }}"
+        >
+            <div class="project-media overflow-hidden relative">
+                <!-- Image with blur filter, only if image exists -->
+                {{ if ne .image "" }}
+                    <img src="{{ .image }}" alt="{{ .title }}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 blur-img">
+                {{ else }}
+                    <!-- If no image, show a pure black background -->
+                    <div class="w-full h-full bg-black"></div>
+                {{ end }}
+            </div>
+            <div class="project-content p-3 md:p-4 bg-[#0f0f0f]">
+                <h3 class="text-xl md:text-2xl font-bold mb-1 md:mb-1.5 text-white line-clamp-2 mobile-text-xl">{{ .title }}</h3>
+                <div class="flex flex-wrap gap-1 md:gap-1.5 mb-1.5 md:mb-2.5">
+                    {{ $techs := split .tech "," }}
+                    {{ range $tech := $techs }}
+                        {{ $trimmedTech := trim $tech " " }}
+                        <span class="px-1.5 py-0.5 border border-white/60 rounded-md text-xs md:text-sm font-medium text-white mobile-text-xs">{{ $trimmedTech }}</span>
+                    {{ end }}
+                </div>
+                <p class="hidden md:block text-xs text-gray-300 mb-2.5 line-clamp-2 mobile-text-sm">{{ .description }}</p>
+                
+                <div class="flex gap-2">
+                    <a href="{{ .link }}" class="bg-white/90 hover:bg-white text-black text-xs md:text-sm font-medium py-1 md:py-1.5 px-2.5 md:px-3 rounded-md inline-block transition-all duration-300 transform w-fit flex items-center mobile-text-xs">
+                        Learn More
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 ml-1 transform group-hover:translate-x-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                    </a>
+                    
+                    {{ if .youtube_url }}
+                    <button 
+                        class="youtube-button bg-red-600/90 hover:bg-red-600 text-white text-xs md:text-sm font-medium py-1 md:py-1.5 px-2.5 md:px-3 rounded-md inline-block transition-all duration-300 transform w-fit flex items-center mobile-text-xs"
+                        data-youtube-url="{{ .youtube_url }}">
+                        Watch Demo
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/>
+                        </svg>
+                    </button>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+        {{ end }}
+    </div>
+</div>
+
+<style>
+@media (max-width: 768px) {
+    .mobile-text-xl {
+        font-size: 1.25rem;
+        line-height: 1.2;
+    }
+    
+    .mobile-text-xs {
+        font-size: 0.875rem;
+    }
+    
+    .mobile-text-sm {
+        font-size: 1rem;
+    }
+    
+    .project-card {
+        max-height: 280px;
+    }
+}
+
+.project-card {
+    max-height: 300px;
+}
+
+.project-media {
+    height: 170px;
+}
+
+@media (max-width: 768px) {
+    .project-media {
+        height: 150px;
+    }
+}
+
+/* Tag Filter Styles */
+.tag-pill {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tag-pill.selected {
+    background-color: #4a4a4a;
+    color: white;
+    border-color: white;
+}
+</style>
+
+<script>
+// The script remains the same as in the previous version
+document.addEventListener('DOMContentLoaded', function() {
+    // YouTube modal functionality
+    const modal = document.getElementById('youtube-modal');
+    const iframe = document.getElementById('youtube-iframe');
+    const closeButton = document.getElementById('close-modal');
+    const tagFilterContainer = document.getElementById('tag-filter');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    // Extract unique tags from projects
+    const uniqueTags = new Set();
+    projectCards.forEach(card => {
+        const tags = card.getAttribute('data-tags').split(' ');
+        tags.forEach(tag => uniqueTags.add(tag.trim()));
+    });
+
+    // Create tag pills
+    uniqueTags.forEach(tag => {
+        if (tag) {
+            const tagPill = document.createElement('span');
+            tagPill.textContent = tag;
+            tagPill.classList.add('tag-pill', 'px-2.5', 'py-1', 'rounded-full', 'text-xs', 'border', 'border-gray-600', 'text-gray-300', 'hover:bg-gray-700', 'transition-all', 'duration-300');
+            tagFilterContainer.appendChild(tagPill);
+        }
+    });
+
+    // Tag filtering logic
+    const tagPills = document.querySelectorAll('.tag-pill');
+    const selectedTags = new Set();
+
+    tagPills.forEach(pill => {
+        pill.addEventListener('click', function() {
+            // Toggle selection
+            this.classList.toggle('selected');
+            
+            // Update selected tags
+            if (this.classList.contains('selected')) {
+                selectedTags.add(this.textContent.toLowerCase());
+            } else {
+                selectedTags.delete(this.textContent.toLowerCase());
+            }
+
+            // Filter projects
+            filterProjects();
+        });
+    });
+
+    function filterProjects() {
+        const searchTerm = document.getElementById('project-search').value.toLowerCase().trim();
+
+        projectCards.forEach(card => {
+            const title = card.getAttribute('data-title');
+            const cardTags = card.getAttribute('data-tags').toLowerCase().split(' ');
+
+            // Check if no tags are selected or card matches selected tags
+            const tagMatch = selectedTags.size === 0 || 
+                [...selectedTags].some(selectedTag => 
+                    cardTags.some(cardTag => cardTag.includes(selectedTag))
+                );
+
+            // Check search term
+            const searchMatch = searchTerm === '' || title.includes(searchTerm);
+
+            // Show or hide card based on filters
+            card.style.display = (tagMatch && searchMatch) ? 'block' : 'none';
+        });
+    }
+
+    // Search input event listener
+    document.getElementById('project-search').addEventListener('input', filterProjects);
+
+    function getYoutubeEmbedUrl(url) {
+        // Extract video ID from various YouTube URL formats
+        let videoId = '';
+        if (url.includes('youtube.com/watch')) {
+            videoId = new URL(url).searchParams.get('v');
+        } else if (url.includes('youtu.be/')) {
+            videoId = url.split('youtu.be/')[1].split('?')[0];
+        }
+        
+        if (videoId) {
+            return `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+        }
+        return null;
+    }
+    
+    function openYouTubeModal(event) {
+        // Prevent event propagation to avoid any potential conflicts
+        event.preventDefault();
+        event.stopPropagation();
+
+        const youtubeUrl = this.getAttribute('data-youtube-url');
+        const embedUrl = getYoutubeEmbedUrl(youtubeUrl);
+        
+        if (embedUrl) {
+            iframe.src = embedUrl;
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+    }
+    
+    // Use event delegation to handle dynamic content and mobile touch events
+    document.getElementById('projects-grid').addEventListener('click', function(event) {
+        const youtubeButton = event.target.closest('.youtube-button');
+        if (youtubeButton) {
+            openYouTubeModal.call(youtubeButton, event);
+        }
+    });
+    
+    closeButton.addEventListener('click', function() {
+        iframe.src = '';
+        modal.classList.add('hidden');
+        document.body.style.overflow = ''; // Restore scrolling
+    });
+    
+    // Close on click outside of content
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            iframe.src = '';
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // Close on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+            iframe.src = '';
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+    });
+});
+</script>
+{{ end }}

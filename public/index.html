@@ -1,207 +1,507 @@
 <!DOCTYPE html>
-<html lang="en-us"
-  dir="ltr">
+<html lang="en" class="dark">
+    <head>
+	<meta name="generator" content="Hugo 0.152.2"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1414&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rayan Crasta</title>
+        
 
-  <head>
-	<meta name="generator" content="Hugo 0.120.3">
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width"><meta name="description" content="A Tech Blog" />
+<link rel="icon" href="http://localhost:1414/images/profile/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="http://localhost:1414/images/profile/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1414/images/profile/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1414/images/profile/favicon-16x16.png">
+<link rel="manifest" href="http://localhost:1414/images/profile/site.webmanifest">
+        
+        <style>
+            html, body {
+                background-color: #121212;
+                color: #f3f4f6;
+            }            
+            .border {
+                border-color: #374151;
+            }            
+            .carousel-item {
+                display: inline-block;
+                margin: 0 1rem;
+            }            
+            .flex {
+                display: flex;
+            }
+            .flex-col {
+                flex-direction: column;
+            }
+            
+            @media (min-width: 768px) {
+                .md\:flex-row {
+                    flex-direction: row;
+                }
+            }
+            
+            .tech-carousel {
+                overflow: hidden;
+                width: 100%;
+                padding: 1rem 0;
+            }
+            
+            .carousel-track {
+                white-space: nowrap;
+            }
+        </style>
+        
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+        <script>
+            
+            if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        </script>
+        <style>
+            :root {
+                color-scheme: dark;
+            }
+            
+            body {
+                @apply bg-[#121212] text-gray-100;
+            }
 
-<title>
+            .tech-icon {
+                filter: grayscale(100%) brightness(200%);
+                transition: all 0.3s ease;
+            }
+            .tech-icon:hover {
+                filter: none;
+            }
+            
+            @keyframes scroll {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(-100%);
+                }
+            }
+            
+            .tech-carousel {
+                width: 100%;
+                padding: 1rem 0;
+            }
+            
+            .tech-track {
+                width: fit-content;
+                animation: scroll 20s linear infinite;
+            }
+            
+            .tech-track:hover {
+                animation-play-state: paused;
+            }
+            
+            .tech-slide {
+                float: left;
+            }
+        </style>
+    </head>
+    <body class="min-h-screen bg-[#121212] text-gray-100">
+        
+<head>
     
-    Rayan Crasta
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-</title>
-
-<link rel="canonical" href="https://rayancrasta.github.io/website/" />
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/website/assets/combined.min.a6824bbee0d90d5af09fed9b70395ce7076b615e315037455d903314e96ef91b.css" media="all">
-
-
-
-
-
-
-  </head>
-
-  
-
-  
-  
-  
-
-  <body class="auto">
-
-    <div class="content">
-      <header>
-        
-
-<div class="header">
-
     
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C0RTF18BT4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-    <h1 class="header-title">Rayan Crasta</h1>
-
-    <div class="flex">
+        gtag('config', 'G-C0RTF18BT4');
+    </script>
+    
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+        }
         
-
-        
-        
-        <p class="small ">
-            <a href="/">
-                /home
-            </a>
-        </p>
-        
-        <p class="small ">
-            <a href="/posts">
-                /posts
-            </a>
-        </p>
-        
-        <p class="small ">
-            <a href="/projects">
-                /projects
-            </a>
-        </p>
-        
-        <p class="small ">
-            <a href="/about">
-                /about
-            </a>
-        </p>
-        
-        
+         
+        * {
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<header class="py-4 xs:py-5 sm:py-6 md:py-8 relative">
+    <div class="max-w-6xl mx-auto px-3 xs:px-4 sm:px-5 md:px-6">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 xs:gap-4">
+            <div class="flex justify-between items-center">
+                <a href="http://localhost:1414/" class="text-3xl xs:text-4xl sm:text-5xl md:text-4xl font-bold text-white hover:text-gray-300 transition-colors duration-300">
+                    Rayan Crasta
+                </a>
+                
+                <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-white focus:outline-none">
+                    <svg class="w-5 xs:w-6 h-5 xs:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>            
+            
+            <nav class="hidden md:flex flex-wrap justify-center items-center gap-3 md:gap-4 lg:gap-6">
+                
+                <a href="http://localhost:1414/experience/" class="inline-block text-sm md:text-base lg:text-lg text-gray-300 hover:text-white transition-colors duration-300 ">Experience</a>
+                
+                <a href="http://localhost:1414/projects/" class="inline-block text-sm md:text-base lg:text-lg text-gray-300 hover:text-white transition-colors duration-300 ">Projects</a>
+                
+                <a href="http://localhost:1414/blogs/" class="inline-block text-sm md:text-base lg:text-lg text-gray-300 hover:text-white transition-colors duration-300 ">Blogs</a>
+                
+                <a href="http://localhost:1414/thoughts/" class="inline-block text-sm md:text-base lg:text-lg text-gray-300 hover:text-white transition-colors duration-300 ">Thoughts</a>
+                
+                <a href="http://localhost:1414/contact/" class="inline-block text-sm md:text-base lg:text-lg text-gray-300 hover:text-white transition-colors duration-300 ">Contact Me</a>
+                
+            </nav>
+        </div>
     </div>
 
     
-
-</div>
-      </header>
-
-      <main class="main">
-        
-
-
-
-
-
-
-<div class="intro">
-    
-    <h1>Hey!</h1>
-    
-
-    
-    <p><p>I am a Software Engineer with a deep interest in backend engineering and software development.
-I am interested in a range of topics, including algorithms, distributed systems, and databases.</p>
-<p>I write blogs and build projects on the topics that interest me; this is the place where you can find them.</p>
-</p>
-    
-</div>
-
-
-
-
-
-<div class="social-icons">
-    <a href="https://www.linkedin.com/in/rayan-crasta/" target="_blank"
-        rel="noopener noreferrer me"
-        title="Linkedin">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-    stroke-linecap="round" stroke-linejoin="round">
-    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-    <rect x="2" y="9" width="4" height="12"></rect>
-    <circle cx="4" cy="4" r="2"></circle>
-</svg>
-    </a>
-    <a href="https://medium.com/@rayancr" target="_blank"
-        rel="noopener noreferrer me"
-        title="Medium">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 76.000000 76.000000" fill="currentColor" stroke-width="2"
-    preserveAspectRatio="xMidYMid meet">
-    <g transform="translate(0.000000,76.000000) scale(0.100000,-0.100000)">
-        <path
-            d="M0 380 l0 -380 380 0 380 0 0 380 0 380 -380 0 -380 0 0 -380z m334 85 c30 -63 57 -115 59 -115 2 0 16 30 31 68 15 37 37 88 49 115 l20 47 76 0 76 -1 -27 -20 -28 -21 0 -151 c0 -150 0 -151 27 -179 l27 -28 -109 0 -109 0 27 28 c26 27 27 32 26 143 0 131 3 134 -71 -58 -24 -62 -48 -113 -53 -113 -6 0 -17 16 -24 35 -7 19 -36 83 -64 142 l-52 108 -3 -98 c-3 -97 -2 -99 28 -133 16 -19 30 -39 30 -44 0 -6 -31 -10 -70 -10 -45 0 -70 4 -70 11 0 6 14 27 30 46 30 33 30 35 30 151 0 116 0 118 -31 155 l-30 37 75 0 76 0 54 -115z" />
-    </g>
-</svg>
-    </a>
-    <a href="https://github.com/rayancrasta" target="_blank"
-        rel="noopener noreferrer me"
-        title="Github">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-    stroke-linecap="round" stroke-linejoin="round">
-    <path
-        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-    </path>
-</svg>
-    </a>
-</div>
-
-
-
-
-
-</div>
-
-
-      </main>
+    <div id="mobile-menu" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden transition-all duration-300">
+        <div class="flex flex-col h-full">
+            <div class="flex justify-between items-center p-4 xs:p-5 sm:p-6 border-b border-gray-800">
+                <span class="text-lg xs:text-xl sm:text-2xl font-bold text-white">Menu</span>
+                <button id="mobile-menu-close" class="text-gray-300 hover:text-white focus:outline-none">
+                    <svg class="w-5 xs:w-6 h-5 xs:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <nav class="flex flex-col p-4 xs:p-5 sm:p-6 space-y-3 xs:space-y-4">
+                
+                <a href="http://localhost:1414/experience/" class="text-lg xs:text-xl sm:text-2xl text-gray-300 hover:text-white transition-colors duration-300 ">Experience</a>
+                
+                <a href="http://localhost:1414/projects/" class="text-lg xs:text-xl sm:text-2xl text-gray-300 hover:text-white transition-colors duration-300 ">Projects</a>
+                
+                <a href="http://localhost:1414/blogs/" class="text-lg xs:text-xl sm:text-2xl text-gray-300 hover:text-white transition-colors duration-300 ">Blogs</a>
+                
+                <a href="http://localhost:1414/thoughts/" class="text-lg xs:text-xl sm:text-2xl text-gray-300 hover:text-white transition-colors duration-300 ">Thoughts</a>
+                
+                <a href="http://localhost:1414/contact/" class="text-lg xs:text-xl sm:text-2xl text-gray-300 hover:text-white transition-colors duration-300 ">Contact Me</a>
+                
+            </nav>
+            <div class="mt-auto p-4 xs:p-5 sm:p-6 border-t border-gray-800">
+                <div class="flex items-center justify-center">
+                    <span class="text-sm xs:text-base sm:text-lg text-gray-300 mr-2">Local Time:</span>
+                    <div id="mobile-local-time" class="text-sm xs:text-base sm:text-lg text-gray-300"></div>
+                </div>
+            </div>
+        </div>
     </div>
+</header>
 
-    <footer>
-      <p>Powered by
-    <a href="https://gohugo.io/">Hugo</a>
-    and
-    <a href="https://github.com/tomfran/typo">tomfran/typo</a>
-</p>
-
-
-    </footer>
-
-  </body>
-
-  <script>
-
-  function isAuto() {
-    return document.body.classList.contains("auto");
-  }
-
-  function setTheme() {
-    if (!isAuto()) {
-      return
+<script>
+    
+    function addEnhancedTouchFriendlyClick(element, handler) {
+        let touchStartTime, touchStartX, touchStartY;
+        
+        element.addEventListener('touchstart', function(e) {
+            touchStartTime = new Date().getTime();
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+        }, { passive: true });
+        
+        element.addEventListener('touchend', function(e) {
+            const touchEndTime = new Date().getTime();
+            const touchEndX = e.changedTouches[0].clientX;
+            const touchEndY = e.changedTouches[0].clientY;
+            
+            
+            const touchDuration = touchEndTime - touchStartTime;
+            const isShortTap = touchDuration < 500; 
+            const isSmallMovement = 
+                Math.abs(touchEndX - touchStartX) < 10 && 
+                Math.abs(touchEndY - touchStartY) < 10;
+            
+            if (isShortTap && isSmallMovement) {
+                e.preventDefault();
+                handler.call(this, e);
+            }
+        });
+        
+        
+        element.addEventListener('click', function(e) {
+            handler.call(this, e);
+        });
     }
 
-    document.body.classList.remove("auto");
-    let cls = "light";
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      cls = "dark";
+    
+    function updateLocalTime() {
+        const timeElements = document.querySelectorAll('#local-time, #mobile-local-time');
+        timeElements.forEach(element => {
+            if (element) {
+                const now = new Date();
+                const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                element.textContent = timeString;
+            }
+        });
+    }
+    updateLocalTime();
+    setInterval(updateLocalTime, 1000);
+
+    
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    function toggleMobileMenu() {
+        const isHidden = mobileMenu.classList.contains('hidden');
+        if (isHidden) {
+            mobileMenu.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; 
+        } else {
+            mobileMenu.classList.add('hidden');
+            document.body.style.overflow = ''; 
+        }
     }
 
-    document.body.classList.add(cls);
-  }
+    
+    addEnhancedTouchFriendlyClick(mobileMenuButton, toggleMobileMenu);
+    addEnhancedTouchFriendlyClick(mobileMenuClose, toggleMobileMenu);
 
-  function invertBody() {
-    document.body.classList.toggle("dark");
-    document.body.classList.toggle("light");
-  }
+    
+    const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+    mobileMenuLinks.forEach(link => {
+        addEnhancedTouchFriendlyClick(link, (e) => {
+            
+            window.location.href = link.href;
+            
+            
+            toggleMobileMenu();
+        });
+    });
 
-  if (isAuto()) {
-    window.matchMedia('(prefers-color-scheme: dark)').addListener(invertBody);
-  }
+    
+    document.addEventListener('touchmove', function(e) {
+        if (e.scale !== 1) { 
+            e.preventDefault(); 
+        }
+    }, { passive: false });
 
-  setTheme();
+    
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', function(event) {
+        const now = new Date().getTime();
+        if (now - lastTouchEnd <= 300) {
+            event.preventDefault();
+        }
+        lastTouchEnd = now;
+    }, false);
 
+    
+    mobileMenuLinks.forEach(link => {
+        link.addEventListener('touchstart', function() {
+            this.style.opacity = '0.7';
+        });
+        link.addEventListener('touchend', function() {
+            this.style.opacity = '1';
+        });
+        link.addEventListener('touchcancel', function() {
+            this.style.opacity = '1';
+        });
+    });
 </script>
+        <main>
+            
+<head>
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+</head>
+<div class="w-full md:w-4/5 lg:w-1/2 mx-auto px-4 md:px-8 py-12">
+    
+    <section class="mb-16">
+        <div class="max-w-3xl ml-0 p-4 pb-2 border border-gray-00 rounded-lg bg-[#121212] shadow-lg relative">
+            
+            <div class="text-left">
+                <h1 class="text-3xl font-bold mb-2">Software Engineer</h1>
+                <p class="text-gray-400 mb-3 flex items-center text-xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="-7 -2 24 24"><path fill="gray" d="M4 9.9A5.002 5.002 0 0 1 5 0a5 5 0 0 1 1 9.9V19a1 1 0 0 1-2 0V9.9zM5 8a3 3 0 1 0 0-6a3 3 0 0 0 0 6z"/></svg>
+                    Leeds, UK
+                </p>
+                <p class="text-xl mb-6">I love solving problems and building software around them.</p>
+            </div>
+            
+            <div class="mt-8 md:mt-0 flex flex-wrap justify-center gap-3 md:absolute md:top-4 md:right-4 md:flex-nowrap md:justify-end md:mt-0">
+                
+                <a href="https://x.com/rayan_crasta" class="text-gray-400 hover:text-white bg-[#121212] p-2 rounded-md border border-gray-700 hover:border-gray-500 transition-all" target="_blank" rel="noopener noreferrer" aria-label="X">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+                        <path d="M18.901 2H22l-7.19 8.214L23.5 22h-6.9l-5.4-6.5L5.4 22H2.3l7.9-9.02L.5 2h7.1l4.9 6 6.401-6Z"/>
+                    </svg>
+                </a>
+                
+                
+                <a href="https://github.com/rayancrasta/" class="text-gray-400 hover:text-white bg-[#121212] p-2 rounded-md border border-gray-700 hover:border-gray-500 transition-all" target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0,0,256,256">
+                        <g fill="#fffcfc" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(8.53333,8.53333)"><path d="M15,3c-6.627,0 -12,5.373 -12,12c0,5.623 3.872,10.328 9.092,11.63c-0.056,-0.162 -0.092,-0.35 -0.092,-0.583v-2.051c-0.487,0 -1.303,0 -1.508,0c-0.821,0 -1.551,-0.353 -1.905,-1.009c-0.393,-0.729 -0.461,-1.844 -1.435,-2.526c-0.289,-0.227 -0.069,-0.486 0.264,-0.451c0.615,0.174 1.125,0.596 1.605,1.222c0.478,0.627 0.703,0.769 1.596,0.769c0.433,0 1.081,-0.025 1.691,-0.121c0.328,-0.833 0.895,-1.6 1.588,-1.962c-3.996,-0.411 -5.903,-2.399 -5.903,-5.098c0,-1.162 0.495,-2.286 1.336,-3.233c-0.276,-0.94 -0.623,-2.857 0.106,-3.587c1.798,0 2.885,1.166 3.146,1.481c0.896,-0.307 1.88,-0.481 2.914,-0.481c1.036,0 2.024,0.174 2.922,0.483c0.258,-0.313 1.346,-1.483 3.148,-1.483c0.732,0.731 0.381,2.656 0.102,3.594c0.836,0.945 1.328,2.066 1.328,3.226c0,2.697 -1.904,4.684 -5.894,5.097c1.098,0.573 1.899,2.183 1.899,3.396v2.734c0,0.104 -0.023,0.179 -0.035,0.268c4.676,-1.639 8.035,-6.079 8.035,-11.315c0,-6.627 -5.373,-12 -12,-12z"></path></g></g>
+                        </svg>
+                </a>
+                
+                
+                <a href="https://www.linkedin.com/in/rayan-crasta/" class="text-gray-400 hover:text-white bg-[#121212] p-2 rounded-md border border-gray-700 hover:border-gray-500 transition-all" target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="white" d="M20.47 2H3.53a1.45 1.45 0 0 0-1.47 1.43v17.14A1.45 1.45 0 0 0 3.53 22h16.94a1.45 1.45 0 0 0 1.47-1.43V3.43A1.45 1.45 0 0 0 20.47 2ZM8.09 18.74h-3v-9h3ZM6.59 8.48a1.56 1.56 0 1 1 0-3.12a1.57 1.57 0 1 1 0 3.12Zm12.32 10.26h-3v-4.83c0-1.21-.43-2-1.52-2A1.65 1.65 0 0 0 12.85 13a2 2 0 0 0-.1.73v5h-3v-9h3V11a3 3 0 0 1 2.71-1.5c2 0 3.45 1.29 3.45 4.06Z"/></svg>
+                </a>
+                
+            </div>
+        </div>
+    </section>
 
-</html>
+    
+    <section class="mb-20">
+        <h2 class="text-3xl font-bold mb-6 relative">What I work with</h2>
+        <div class="tech-list">
+            <div class="tech-item">
+                <i class="devicon-python-plain text-2xl"></i>
+                <span class="text-lg">Python</span>
+            </div>
+            <div class="tech-item">
+                <i class="devicon-fastapi-plain text-2xl"></i>
+                <span class="text-lg">FastAPI</span>
+            </div>
+            <div class="tech-item">
+                <i class="devicon-react-original text-2xl"></i>
+                <span class="text-lg">React</span>
+            </div>
+            <div class="tech-item">
+                <i class="devicon-react-original text-2xl"></i>
+                <span class="text-lg">React Native</span>
+            </div>
+            <div class="tech-item">
+                <i class="devicon-redis-plain text-2xl"></i>
+                <span class="text-lg">Redis</span>
+            </div>
+            <div class="tech-item">
+                <i class="devicon-mongodb-plain text-2xl"></i>      
+                <span class="text-lg">MongoDB</span>
+            </div>
+            <div class="tech-item">
+                <i class="devicon-microsoftsqlserver-plain text-2xl"></i>        
+                <span class="text-lg">SQL</span>
+            </div>
+            <div class="tech-item">
+                <i class="devicon-apachekafka-original text-2xl"></i>
+                <span class="text-lg">Kafka</span>
+            </div>
+            <div class="tech-item">
+                <i class="devicon-azure-plain text-2xl"></i>
+                <span class="text-lg">Azure</span>
+            </div>
+        </div>
+    </section>
+</div>
+
+<style>
+.tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding: 1rem 0;
+}
+
+.tech-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.5rem;
+    background: rgba(18, 18, 18, 0.5);
+    border: 1px solid rgba(75, 85, 99, 0.3);
+    transition: all 0.3s ease;
+    gap: 0.75rem;
+    white-space: nowrap;
+}
+
+.tech-item:hover {
+    background: rgba(18, 18, 18, 0.8);
+    border-color: rgba(75, 85, 99, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.tech-item i {
+    font-size: 2rem;
+    min-width: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.tech-item:hover i {
+    transform: scale(1.1);
+}
+
+.tech-item span {
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+
+@media (max-width: 640px) {
+    .tech-list {
+        gap: 0.5rem;
+    }
+    
+    .tech-item {
+        padding: 0.625rem 1rem;
+        gap: 0.5rem;
+    }
+    
+    .tech-item i {
+        font-size: 1.75rem;
+        min-width: 1.75rem;
+    }
+    
+    .tech-item span {
+        font-size: 1rem;
+    }
+}
+
+.max-w-3xl {
+    border-color: rgba(75, 85, 99, 0.7); 
+}
+</style>
+
+        </main>
+        
+<footer class="mt-8 text-center">
+    <div class="max-w-3xl mx-auto">
+        <div class="border-t border-gray-800 pt-5">
+            <div class="flex flex-col items-center justify-center gap-2">                
+                <p class="text-gray-500 text-xm ">© 2026 Rayan Crasta</p>
+                <p class="text-gray-500 text-xm">Built using <a href="https://gohugo.io/" target="_blank" class="animated-link text-gray-400 hover:text-gray-200">Hugo</a> / <a href="https://github.com/prxshetty/hugo-noir" target="_blank" class="animated-link text-gray-400 hover:text-gray-200">hugo-noir</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<style>
+    .animated-link {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+    }
+    
+    .animated-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 1px;
+        bottom: -1px;
+        left: 0;
+        background-color: #ffffff;
+        transition: width 0.3s ease-in-out;
+    }
+    
+    .animated-link:hover::after {
+        width: 100%;
+    }
+</style> 
+
+    </body>
+</html> 

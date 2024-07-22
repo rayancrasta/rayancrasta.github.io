@@ -1,0 +1,108 @@
+{{ define "main" }}
+<div class="w-full md:w-4/5 lg:w-3/5 mx-auto px-4 md:px-14 py-12">
+    <h1 class="text-4xl md:text-5xl font-bold mb-6 md:mb-8">{{ .Title }}</h1>
+
+    <div class="mb-6 relative w-full">
+        <input
+            type="text"
+            id="thought-search"
+            placeholder="Search thoughts..."
+            class="w-full py-2 px-4 pl-10 text-base bg-transparent rounded-lg border border-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+        >
+        <svg xmlns="http://www.w3.org/2000/svg" class="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+    </div>
+
+    <div id="thoughts-list" class="space-y-3">
+        {{ $feedURL := "https://rayancrasta.substack.com/feed" }}
+        {{ $feedPath := "data/thoughts.xml" }}
+        {{ $items := slice }}
+        {{ $rss := (dict "rss" (dict)) }}
+        {{ $rssFound := false }}
+
+        {{ if and (fileExists $feedPath) (gt (len (readFile $feedPath)) 0) }}
+            {{ $rss = readFile $feedPath | transform.Unmarshal }}
+            {{ $rssFound = true }}
+        {{ else if ne hugo.Environment "production" }}
+            {{ $remote := try (resources.GetRemote $feedURL (dict "headers" (dict "User-Agent" "Mozilla/5.0 (compatible; Hugo; +https://rayancrasta.com/)"))) }}
+            {{ if not $remote.Err }}
+                {{ with $remote.Value }}
+                    {{ $rss = . | transform.Unmarshal }}
+                    {{ $rssFound = true }}
+                {{ end }}
+            {{ end }}
+        {{ end }}
+
+        {{ if $rssFound }}
+            {{ $raw := index $rss "rss" "channel" "item" }}
+            {{ if not $raw }}
+                {{ $raw = index $rss "channel" "item" }}
+            {{ end }}
+            {{ if $raw }}
+                {{ if isset $raw 0 }}
+                    {{ range $raw }}
+                        {{ $items = $items | append . }}
+                    {{ end }}
+                {{ else if isset $raw "title" }}
+                    {{ $items = slice $raw }}
+                {{ end }}
+            {{ end }}
+        {{ end }}
+
+        {{ if gt (len $items) 0 }}
+            {{ range $items }}
+            <article
+                class="thought-item border border-gray-800 rounded-xl p-3 bg-[#121212]/60 transition-all duration-200 hover:border-white"
+                data-title="{{ lower (.title | plainify) }}"
+                data-summary="{{ lower (.description | plainify) }}"
+            >
+                <a href="{{ .link }}" target="_blank" rel="noopener noreferrer" class="block space-y-1">
+                    {{ if .pubDate }}
+                    <p class="text-xs text-gray-500">{{ .pubDate }}</p>
+                    {{ end }}
+                    <h2 class="text-lg font-semibold text-gray-100 leading-snug">{{ .title }}</h2>
+                    {{ if .description }}
+                    <p class="text-sm text-gray-300 leading-relaxed">{{ .description | plainify }}</p>
+                    {{ end }}
+                </a>
+            </article>
+            {{ end }}
+        {{ else }}
+            <p class="text-gray-400">No thoughts available yet.</p>
+        {{ end }}
+    </div>
+
+    <p id="thoughts-no-results" class="hidden text-center py-6 text-gray-400">No matching thoughts.</p>
+</div>
+
+<script>
+(function() {
+    const searchInput = document.getElementById('thought-search');
+    const entries = Array.from(document.querySelectorAll('.thought-item'));
+    const noResults = document.getElementById('thoughts-no-results');
+
+    function filterThoughts() {
+        const term = searchInput.value.toLowerCase().trim();
+        let visible = 0;
+
+        entries.forEach(item => {
+            const title = item.getAttribute('data-title');
+            const summary = item.getAttribute('data-summary');
+            const matches = term === '' || title.includes(term) || summary.includes(term);
+
+            item.style.display = matches ? 'block' : 'none';
+            if (matches) {
+                visible += 1;
+            }
+        });
+
+        noResults.classList.toggle('hidden', visible > 0);
+    }
+
+    if (searchInput) {
+        searchInput.addEventListener('input', filterThoughts);
+    }
+})();
+</script>
+{{ end }}

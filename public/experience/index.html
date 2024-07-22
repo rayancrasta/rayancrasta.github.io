@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1414&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Experience - Rayan Crasta</title>
+        
+
+<link rel="icon" href="http://localhost:1414/images/profile/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="http://localhost:1414/images/profile/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1414/images/profile/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1414/images/profile/favicon-16x16.png">
+<link rel="manifest" href="http://localhost:1414/images/profile/site.webmanifest">
+        
+        <style>
+            html, body {
+                background-color: #121212;
+                color: #f3f4f6;
+            }            
+            .border {
+                border-color: #374151;
+            }            
+            .carousel-item {
+                display: inline-block;
+                margin: 0 1rem;
+            }            
+            .flex {
+                display: flex;
+            }
+            .flex-col {
+                flex-direction: column;
+            }
+            
+            @media (min-width: 768px) {
+                .md\:flex-row {
+                    flex-direction: row;
+                }
+            }
+            
+            .tech-carousel {
+                overflow: hidden;
+                width: 100%;
+                padding: 1rem 0;
+            }
+            
+            .carousel-track {
+                white-space: nowrap;
+            }
+        </style>
+        
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+        <script>
+            
+            if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        </script>
+        <style>
+            :root {
+                color-scheme: dark;
+            }
+            
+            body {
+                @apply bg-[#121212] text-gray-100;
+            }
+
+            .tech-icon {
+                filter: grayscale(100%) brightness(200%);
+                transition: all 0.3s ease;
+            }
+            .tech-icon:hover {
+                filter: none;
+            }
+            
+            @keyframes scroll {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(-100%);
+                }
+            }
+            
+            .tech-carousel {
+                width: 100%;
+                padding: 1rem 0;
+            }
+            
+            .tech-track {
+                width: fit-content;
+                animation: scroll 20s linear infinite;
+            }
+            
+            .tech-track:hover {
+                animation-play-state: paused;
+            }
+            
+            .tech-slide {
+                float: left;
+            }
+        </style>
+    </head>
+    <body class="min-h-screen bg-[#121212] text-gray-100">
+        
+<head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C0RTF18BT4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-C0RTF18BT4');
+    </script>
+    
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+        }
+        
+         
+        * {
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<header class="py-4 xs:py-5 sm:py-6 md:py-8 relative">
+    <div class="max-w-6xl mx-auto px-3 xs:px-4 sm:px-5 md:px-6">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 xs:gap-4">
+            <div class="flex justify-between items-center">
+                <a href="http://localhost:1414/" class="text-3xl xs:text-4xl sm:text-5xl md:text-4xl font-bold text-white hover:text-gray-300 transition-colors duration-300">
+                    Rayan Crasta
+                </a>
+                
+                <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-white focus:outline-none">
+                    <svg class="w-5 xs:w-6 h-5 xs:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>            
+            
+            <nav class="hidden md:flex flex-wrap justify-center items-center gap-3 md:gap-4 lg:gap-6">
+                
+                <a href="http://localhost:1414/experience/" class="inline-block text-sm md:text-base lg:text-lg text-gray-300 hover:text-white transition-colors duration-300 text-white font-semibold">Experience</a>
+                
+                <a href="http://localhost:1414/projects/" class="inline-block text-sm md:text-base lg:text-lg text-gray-300 hover:text-white transition-colors duration-300 ">Projects</a>
+                
+                <a href="http://localhost:1414/blogs/" class="inline-block text-sm md:text-base lg:text-lg text-gray-300 hover:text-white transition-colors duration-300 ">Blogs</a>
+                
+                <a href="http://localhost:1414/thoughts/" class="inline-block text-sm md:text-base lg:text-lg text-gray-300 hover:text-white transition-colors duration-300 ">Thoughts</a>
+                
+                <a href="http://localhost:1414/contact/" class="inline-block text-sm md:text-base lg:text-lg text-gray-300 hover:text-white transition-colors duration-300 ">Contact Me</a>
+                
+            </nav>
+        </div>
+    </div>
+
+    
+    <div id="mobile-menu" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden transition-all duration-300">
+        <div class="flex flex-col h-full">
+            <div class="flex justify-between items-center p-4 xs:p-5 sm:p-6 border-b border-gray-800">
+                <span class="text-lg xs:text-xl sm:text-2xl font-bold text-white">Menu</span>
+                <button id="mobile-menu-close" class="text-gray-300 hover:text-white focus:outline-none">
+                    <svg class="w-5 xs:w-6 h-5 xs:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <nav class="flex flex-col p-4 xs:p-5 sm:p-6 space-y-3 xs:space-y-4">
+                
+                <a href="http://localhost:1414/experience/" class="text-lg xs:text-xl sm:text-2xl text-gray-300 hover:text-white transition-colors duration-300 text-white font-semibold">Experience</a>
+                
+                <a href="http://localhost:1414/projects/" class="text-lg xs:text-xl sm:text-2xl text-gray-300 hover:text-white transition-colors duration-300 ">Projects</a>
+                
+                <a href="http://localhost:1414/blogs/" class="text-lg xs:text-xl sm:text-2xl text-gray-300 hover:text-white transition-colors duration-300 ">Blogs</a>
+                
+                <a href="http://localhost:1414/thoughts/" class="text-lg xs:text-xl sm:text-2xl text-gray-300 hover:text-white transition-colors duration-300 ">Thoughts</a>
+                
+                <a href="http://localhost:1414/contact/" class="text-lg xs:text-xl sm:text-2xl text-gray-300 hover:text-white transition-colors duration-300 ">Contact Me</a>
+                
+            </nav>
+            <div class="mt-auto p-4 xs:p-5 sm:p-6 border-t border-gray-800">
+                <div class="flex items-center justify-center">
+                    <span class="text-sm xs:text-base sm:text-lg text-gray-300 mr-2">Local Time:</span>
+                    <div id="mobile-local-time" class="text-sm xs:text-base sm:text-lg text-gray-300"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<script>
+    
+    function addEnhancedTouchFriendlyClick(element, handler) {
+        let touchStartTime, touchStartX, touchStartY;
+        
+        element.addEventListener('touchstart', function(e) {
+            touchStartTime = new Date().getTime();
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+        }, { passive: true });
+        
+        element.addEventListener('touchend', function(e) {
+            const touchEndTime = new Date().getTime();
+            const touchEndX = e.changedTouches[0].clientX;
+            const touchEndY = e.changedTouches[0].clientY;
+            
+            
+            const touchDuration = touchEndTime - touchStartTime;
+            const isShortTap = touchDuration < 500; 
+            const isSmallMovement = 
+                Math.abs(touchEndX - touchStartX) < 10 && 
+                Math.abs(touchEndY - touchStartY) < 10;
+            
+            if (isShortTap && isSmallMovement) {
+                e.preventDefault();
+                handler.call(this, e);
+            }
+        });
+        
+        
+        element.addEventListener('click', function(e) {
+            handler.call(this, e);
+        });
+    }
+
+    
+    function updateLocalTime() {
+        const timeElements = document.querySelectorAll('#local-time, #mobile-local-time');
+        timeElements.forEach(element => {
+            if (element) {
+                const now = new Date();
+                const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                element.textContent = timeString;
+            }
+        });
+    }
+    updateLocalTime();
+    setInterval(updateLocalTime, 1000);
+
+    
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    function toggleMobileMenu() {
+        const isHidden = mobileMenu.classList.contains('hidden');
+        if (isHidden) {
+            mobileMenu.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; 
+        } else {
+            mobileMenu.classList.add('hidden');
+            document.body.style.overflow = ''; 
+        }
+    }
+
+    
+    addEnhancedTouchFriendlyClick(mobileMenuButton, toggleMobileMenu);
+    addEnhancedTouchFriendlyClick(mobileMenuClose, toggleMobileMenu);
+
+    
+    const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+    mobileMenuLinks.forEach(link => {
+        addEnhancedTouchFriendlyClick(link, (e) => {
+            
+            window.location.href = link.href;
+            
+            
+            toggleMobileMenu();
+        });
+    });
+
+    
+    document.addEventListener('touchmove', function(e) {
+        if (e.scale !== 1) { 
+            e.preventDefault(); 
+        }
+    }, { passive: false });
+
+    
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', function(event) {
+        const now = new Date().getTime();
+        if (now - lastTouchEnd <= 300) {
+            event.preventDefault();
+        }
+        lastTouchEnd = now;
+    }, false);
+
+    
+    mobileMenuLinks.forEach(link => {
+        link.addEventListener('touchstart', function() {
+            this.style.opacity = '0.7';
+        });
+        link.addEventListener('touchend', function() {
+            this.style.opacity = '1';
+        });
+        link.addEventListener('touchcancel', function() {
+            this.style.opacity = '1';
+        });
+    });
+</script>
+        <main>
+            
+<div class="w-full md:w-4/5 lg:w-3/5 mx-auto px-4 md:px-14 py-12">
+    
+    
+
+    
+    <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 md:mb-8">Experience</h1>
+    <div class="space-y-8 max-w-4xl mx-auto">
+        
+            
+            <div class="group relative pl-4 md:pl-8 before:content-[''] before:absolute before:left-0 before:top-0 before:w-[2px] before:h-full before:bg-gray-700 before:rounded-full">
+    <div class="absolute -left-1.5 top-0 w-2 h-2 bg-gray-700 rounded-full"></div>
+    <div class="p-4 md:p-6 rounded-lg bg-[#121212] transition-all duration-300">
+                    <div class="flex-grow">
+                        
+                            <div class="text-gray-400 text-lg sm:text-xl font-medium">Skipton Building Society</div>
+                        
+                        <div class="flex flex-col md:flex-row md:items-center gap-1 mb-2">
+                            <h3 class="text-2xl sm:text-3xl font-semibold text-gray-100">Software Engineer</h3>
+                        </div>
+                        <div class="text-gray-400 mb-4 text-sm sm:text-base">
+                            Jul 2025 - Present
+                        </div>
+
+                        
+                        <div class="mt-4">
+                            <h4 class="text-base sm:text-lg font-medium text-gray-200 mb-3">Key Responsibilities:</h4>
+                            <ul class="list-none space-y-3">
+                                
+                                <li class="text-gray-300 text-base sm:text-lg flex items-start">
+                                    <span class="text-gray-400 mr-2 mt-1 flex-shrink-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                    </span>
+                                    Contributed to development of the new Skipton mobile app in React Native, integrating Ping Identity for secure customer journeys and onboarding flows.
+                                </li>
+                                
+                                <li class="text-gray-300 text-base sm:text-lg flex items-start">
+                                    <span class="text-gray-400 mr-2 mt-1 flex-shrink-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                    </span>
+                                    Implemented and maintained customer workflows that helped 50,000&#43; customers migrate to the refreshed experience while ensuring compliance and performance.
+                                </li>
+                                
+                                <li class="text-gray-300 text-base sm:text-lg flex items-start">
+                                    <span class="text-gray-400 mr-2 mt-1 flex-shrink-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                    </span>
+                                    Correlated app, API, and backend logs to investigate production issues and resolve customer-impacting problems quickly.
+                                </li>
+                                
+                                <li class="text-gray-300 text-base sm:text-lg flex items-start">
+                                    <span class="text-gray-400 mr-2 mt-1 flex-shrink-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                    </span>
+                                    Built internal systems and AI-native developer tooling to automate repetitive tasks and surface insights that increase overall team productivity.
+                                </li>
+                                
+                            </ul>
+                        </div>
+                        
+                        
+                                                
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="group relative pl-4 md:pl-8 before:content-[''] before:absolute before:left-0 before:top-0 before:w-[2px] before:h-full before:bg-gray-700 before:rounded-full">
+    <div class="absolute -left-1.5 top-0 w-2 h-2 bg-gray-700 rounded-full"></div>
+    <div class="p-4 md:p-6 rounded-lg bg-[#121212] transition-all duration-300">
+                    <div class="flex-grow">
+                        
+                            <div class="text-gray-400 text-lg sm:text-xl font-medium">Tata Consultancy Services</div>
+                        
+                        <div class="flex flex-col md:flex-row md:items-center gap-1 mb-2">
+                            <h3 class="text-2xl sm:text-3xl font-semibold text-gray-100">Assistant Systems Engineer</h3>
+                        </div>
+                        <div class="text-gray-400 mb-4 text-sm sm:text-base">
+                            Jun 2021 - Aug 2023 :  Mumbai, India
+                        </div>
+
+                        
+                        <div class="mt-4">
+                            <h4 class="text-base sm:text-lg font-medium text-gray-200 mb-3">Key Responsibilities:</h4>
+                            <ul class="list-none space-y-3">
+                                
+                                <li class="text-gray-300 text-base sm:text-lg flex items-start">
+                                    <span class="text-gray-400 mr-2 mt-1 flex-shrink-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                    </span>
+                                    Automated security hardening and configuration of 100&#43; Linux servers using Bash scripts and Python, reducingcompliance time by 900&#43; hours
+                                </li>
+                                
+                                <li class="text-gray-300 text-base sm:text-lg flex items-start">
+                                    <span class="text-gray-400 mr-2 mt-1 flex-shrink-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                    </span>
+                                    Optimized data ingestion workflows by streamlining upload channels, improving efficiency and reliability.
+                                </li>
+                                
+                                <li class="text-gray-300 text-base sm:text-lg flex items-start">
+                                    <span class="text-gray-400 mr-2 mt-1 flex-shrink-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                    </span>
+                                    and lot more.
+                                </li>
+                                
+                            </ul>
+                        </div>
+                        
+                        
+                                                
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="group relative pl-4 md:pl-8 before:content-[''] before:absolute before:left-0 before:top-0 before:w-[2px] before:h-full before:bg-gray-700 before:rounded-full">
+    <div class="absolute -left-1.5 top-0 w-2 h-2 bg-gray-700 rounded-full"></div>
+    <div class="p-4 md:p-6 rounded-lg bg-[#121212] transition-all duration-300">
+                    <div class="flex-grow">
+                        
+                            <div class="text-gray-400 text-lg sm:text-xl font-medium">Qustac Technologies Pvt. Ltd</div>
+                        
+                        <div class="flex flex-col md:flex-row md:items-center gap-1 mb-2">
+                            <h3 class="text-2xl sm:text-3xl font-semibold text-gray-100">Android Development Intern</h3>
+                        </div>
+                        <div class="text-gray-400 mb-4 text-sm sm:text-base">
+                            Mar 2020 – Jan 2021:  Mumbai, India
+                        </div>
+
+                        
+                        <div class="mt-4">
+                            <h4 class="text-base sm:text-lg font-medium text-gray-200 mb-3">Key Responsibilities:</h4>
+                            <ul class="list-none space-y-3">
+                                
+                                <li class="text-gray-300 text-base sm:text-lg flex items-start">
+                                    <span class="text-gray-400 mr-2 mt-1 flex-shrink-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                    </span>
+                                    Developed an Android application using Android Studio and Java, integrating TensorFlow Lite for real-time classification of explicit and non-explicit images on Android devices.
+                                </li>
+                                
+                                <li class="text-gray-300 text-base sm:text-lg flex items-start">
+                                    <span class="text-gray-400 mr-2 mt-1 flex-shrink-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                    </span>
+                                    Integrated a streamlined machine learning model to facilitate automatic actions upon detecting explicit images.
+                                </li>
+                                
+                            </ul>
+                        </div>
+                        
+                        
+                                                
+                        
+                    </div>
+                </div>
+            </div>
+            
+        
+    </div>
+    
+    
+    <div class="mt-12 mb-12">
+        <h2 class="text-2xl font-bold mb-6 text-gray-100">Education</h2>
+        <div class="space-y-6">
+            
+                
+                <div class="group relative pl-8 before:content-[''] before:absolute before:left-0 before:top-0 before:w-[2px] before:h-full before:bg-gray-700 before:rounded-full">
+                    <div class="absolute -left-1.5 top-0 w-2 h-2 bg-gray-700 rounded-full"></div>
+                    <div class="p-6 rounded-lg bg-[#121212] transition-all duration-300">
+                        <div class="flex-grow">
+                            <div class="text-gray-400 text-lg sm:text-xl font-medium">University of Leicester</div>
+                            <div class="flex flex-col md:flex-row md:items-center gap-1 mb-2">
+                                <h3 class="text-xl sm:text-2xl font-semibold text-gray-100">MSc Cloud Computing</h3>
+                            </div>
+                            <div class="text-gray-400 mb-2 text-sm sm:text-base">
+                                Sep 2023 - Sep 2024
+                            </div>
+                            <div class="text-gray-400 mb-4 text-sm sm:text-base">
+                                Leicester, United Kingdom
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="group relative pl-8 before:content-[''] before:absolute before:left-0 before:top-0 before:w-[2px] before:h-full before:bg-gray-700 before:rounded-full">
+                    <div class="absolute -left-1.5 top-0 w-2 h-2 bg-gray-700 rounded-full"></div>
+                    <div class="p-6 rounded-lg bg-[#121212] transition-all duration-300">
+                        <div class="flex-grow">
+                            <div class="text-gray-400 text-lg sm:text-xl font-medium">University of Mumbai</div>
+                            <div class="flex flex-col md:flex-row md:items-center gap-1 mb-2">
+                                <h3 class="text-xl sm:text-2xl font-semibold text-gray-100">B.E in Information Technology</h3>
+                            </div>
+                            <div class="text-gray-400 mb-2 text-sm sm:text-base">
+                                Aug 2017 - May 2021
+                            </div>
+                            <div class="text-gray-400 mb-4 text-sm sm:text-base">
+                                Mumbai, India
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+            
+        </div>
+    </div>
+</div>
+
+<style>
+    .prose {
+        @apply text-gray-300;
+        font-size: 1.25rem;
+    }
+    .prose h1 {
+        @apply text-4xl font-bold mb-8 text-gray-100;
+    }
+    .prose h2 {
+        @apply text-2xl font-semibold mt-8 mb-4 text-gray-100;
+    }
+    .prose p {
+        @apply text-gray-300 mb-6;
+        line-height: 1.9;
+        font-size: 1.125rem;
+    }
+    .prose p + p {
+        margin-top: 2rem;
+    }
+    .prose ul {
+        @apply text-gray-300 list-disc list-inside space-y-2;
+    }
+    .prose li {
+        @apply text-gray-300;
+    }
+    .prose a {
+        @apply text-blue-400 hover:text-blue-300 transition-colors duration-300;
+    }
+    
+    .intro-section {
+        position: relative;
+    }
+    
+    .intro-section::after {
+        content: '';
+        position: absolute;
+        bottom: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+    }
+    
+    .github-link {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+    }
+    
+    .github-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 1px;
+        bottom: -2px;
+        left: 0;
+        background-color: #ffffff;
+        transition: width 0.3s ease-in-out;
+    }
+    
+    .github-link:hover::after {
+        width: 100%;
+    }
+</style>
+
+        </main>
+        
+<footer class="mt-8 text-center">
+    <div class="max-w-3xl mx-auto">
+        <div class="border-t border-gray-800 pt-5">
+            <div class="flex flex-col items-center justify-center gap-2">                
+                <p class="text-gray-500 text-xm ">© 2026 Rayan Crasta</p>
+                <p class="text-gray-500 text-xm">Built using <a href="https://gohugo.io/" target="_blank" class="animated-link text-gray-400 hover:text-gray-200">Hugo</a> / <a href="https://github.com/prxshetty/hugo-noir" target="_blank" class="animated-link text-gray-400 hover:text-gray-200">hugo-noir</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<style>
+    .animated-link {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+    }
+    
+    .animated-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 1px;
+        bottom: -1px;
+        left: 0;
+        background-color: #ffffff;
+        transition: width 0.3s ease-in-out;
+    }
+    
+    .animated-link:hover::after {
+        width: 100%;
+    }
+</style> 
+
+    </body>
+</html> 

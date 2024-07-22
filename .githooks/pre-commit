@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT_DIR=$(git rev-parse --show-toplevel)
+DATA_DIR="$ROOT_DIR/data"
+FEED_URL="https://rayancrasta.substack.com/feed"
+OUT_FILE="$DATA_DIR/thoughts.xml"
+
+mkdir -p "$DATA_DIR"
+
+curl -fsSL -A "Mozilla/5.0 (compatible; Hugo; +https://rayancrasta.com/)" \
+  "$FEED_URL" \
+  -o "$OUT_FILE" \
+  || {
+    echo "Warning: unable to fetch Substack feed. Keeping existing $OUT_FILE if present." >&2
+  }
+
+if [[ -f "$OUT_FILE" ]]; then
+  git add "$OUT_FILE"
+fi
+
+exit 0

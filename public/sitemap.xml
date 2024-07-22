@@ -2,17 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://rayancrasta.github.io/website/</loc>
-    <lastmod>2024-07-22T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1414/blogs/</loc>
   </url><url>
-    <loc>https://rayancrasta.github.io/website/posts/</loc>
-    <lastmod>2024-07-22T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1414/categories/</loc>
   </url><url>
-    <loc>https://rayancrasta.github.io/website/projects/</loc>
-    <lastmod>2024-07-22T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1414/contact/</loc>
   </url><url>
-    <loc>https://rayancrasta.github.io/website/about/</loc>
+    <loc>http://localhost:1414/dhundra/</loc>
   </url><url>
-    <loc>https://rayancrasta.github.io/website/tags/</loc>
+    <loc>http://localhost:1414/experience/</loc>
+  </url><url>
+    <loc>http://localhost:1414/projects/</loc>
+  </url><url>
+    <loc>http://localhost:1414/</loc>
+  </url><url>
+    <loc>http://localhost:1414/tags/</loc>
+  </url><url>
+    <loc>http://localhost:1414/thoughts/</loc>
   </url>
 </urlset>
