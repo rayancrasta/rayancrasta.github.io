@@ -16,7 +16,7 @@ Android Development Intern
 
 ## Education
 
-**University of Leicester** | MS Cloud Computing
+**University of Leicester** | MSc Cloud Computing
 
 *2023 - 2024*
 
