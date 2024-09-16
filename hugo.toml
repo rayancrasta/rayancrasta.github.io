@@ -108,6 +108,11 @@ date = "2022-06-12"
 #projects
 # Projects entries
 [[params.projects]]
+title = "Privatizeit"
+description = "Sensitive data tokenization and masking API, built with FastAPI for privacy"
+url = "https://github.com/rayancrasta/PrivatizeIt"
+
+[[params.projects]]
 title = "MyShowSeat"
 description = "Prototype of a booking service like major cinema and event booking sites like Ticketmaster and BookMyShow."
 url = "https://github.com/rayancrasta/MyShowSeat"
