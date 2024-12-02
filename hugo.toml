@@ -107,6 +107,12 @@ date = "2022-06-12"
 
 #projects
 # Projects entries
+
+[[params.projects]]
+title = "Dhundra"
+description = "A self hosted resume tailoring and tracking tool for you powered by GPT4. Over 500 resumes generated for less than a dollar."
+url = "https://github.com/rayancrasta/Dhundra"
+
 [[params.projects]]
 title = "Privatizeit"
 description = "Sensitive data tokenization and masking API, built with FastAPI for privacy"
