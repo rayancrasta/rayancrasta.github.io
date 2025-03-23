@@ -51,8 +51,8 @@ name = "home"
 url = "/"
 
 [[params.menu]]
-name = "blogs"
-url = "/blogs"
+name = "posts"
+url = "/posts"
 
 [[params.menu]]
 name = "projects"
