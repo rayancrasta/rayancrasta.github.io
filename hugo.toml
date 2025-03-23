@@ -64,7 +64,7 @@ url = "/about"
 
 # Blog entries
 [[params.blog]]
-title = "Building a tweet ingestion and search backend like Twitter "
+title = "How I use AI to control my browser for my job hunt."
 description = "Implemented BrowserUse a framework to use AI(LLMs) to control your browser for searching for jobs for a specific company in my application Dhundra 2.0"
 url = "https://medium.com/@rayancr/how-i-use-ai-to-control-my-browser-for-my-job-hunt-54ec3fe5d9ca"
 date = "2025-03-21"
