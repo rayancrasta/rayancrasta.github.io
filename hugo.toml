@@ -51,8 +51,8 @@ name = "home"
 url = "/"
 
 [[params.menu]]
-name = "posts"
-url = "/posts"
+name = "blogs"
+url = "/blogs"
 
 [[params.menu]]
 name = "projects"
@@ -63,6 +63,18 @@ name = "about"
 url = "/about"
 
 # Blog entries
+[[params.blog]]
+title = "Building a tweet ingestion and search backend like Twitter "
+description = "Implemented BrowserUse a framework to use AI(LLMs) to control your browser for searching for jobs for a specific company in my application Dhundra 2.0"
+url = "https://medium.com/@rayancr/how-i-use-ai-to-control-my-browser-for-my-job-hunt-54ec3fe5d9ca"
+date = "2025-03-21"
+
+[[params.blog]]
+title = "FastAPI internals in 10 mins"
+description = "Needed to refresh some FastAPI internals before an interview in 10mins. So I made one."
+url = "https://medium.com/@rayancr/fastapi-internals-in-10-mins-03183127832c"
+date = "2025-03-20"
+
 [[params.blog]]
 title = "Building a tweet ingestion and search backend like Twitter "
 description = "Built a scalable tweet ingestion and search backend using Go, Kafka, and Elasticsearch, handling real-time data and safe content filtering."
