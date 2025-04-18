@@ -170,7 +170,8 @@
         </div>
 
         <!-- Updated grid with left alignment and smaller cards -->
-        <div class="grid grid-cols-1 gap-6 md:gap-8 w-full px-4 md:px-0 md:max-w-xl ml-0 mr-auto">
+        <div class="grid grid-cols-1 gap-6 md:gap-8 w-full max-w-full sm:max-w-lg md:max-w-xl mx-auto px-4">
+
             {{ range first 2 .Site.Params.projects }}
             <div class="project-card relative overflow-hidden rounded-lg bg-[#121212] border border-gray-700 transition-all duration-300 group">
                 <div class="aspect-w-16 aspect-h-9 overflow-hidden relative">
@@ -249,11 +250,11 @@
 }
 
 .carousel-track {
-    animation: scroll 45s linear infinite;
+    animation: scroll 17s linear infinite;
 }
 
 .carousel-track-reverse {
-    animation: scroll-reverse 45s linear infinite;
+    animation: scroll-reverse 17s linear infinite;
 }
 
 .carousel-item {
