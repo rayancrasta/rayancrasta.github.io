@@ -1,0 +1,292 @@
+{{ define "main" }}
+<div class="w-full md:w-3/4 lg:w-1/2 mx-auto px-4 py-12">
+    <h1 class="text-4xl md:text-5xl font-bold mb-6">{{ .Title }}</h1>
+    
+    <!-- Search Bar - Adjusted to match blog container width with darker color -->
+    <div class="mb-8 md:mb-12 max-w-3xl mx-auto">
+        <div class="relative w-full">
+            <input 
+                type="text" 
+                id="blog-search" 
+                placeholder="Search blogs..." 
+                class="w-full py-2 px-4 bg-[#121212] rounded-lg border border-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            >
+            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+            </div>
+        </div>
+        <p id="search-results-count" class="text-center mt-2 text-gray-400 text-sm hidden">Showing <span id="count">0</span> results</p>
+    </div>
+    
+    <!-- YouTube Video Modal - Updated for better compatibility -->
+    <div id="youtube-modal" class="fixed inset-0 bg-black/80 z-50 flex items-center justify-center hidden">
+        <div class="relative w-full max-w-4xl mx-auto p-4">
+            <button id="close-modal" class="absolute -top-10 right-0 text-white hover:text-gray-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <div class="aspect-w-16 aspect-h-9 bg-black">
+                <iframe id="youtube-iframe" class="w-full h-full" frameborder="0" allowfullscreen
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+            </div>
+        </div>
+    </div>
+    
+    <div id="blogs-container" class="space-y-6 md:space-y-12 max-w-3xl mx-auto">
+        {{ range .Site.Params.blogs }}
+        <div class="blog-item group flex flex-col md:flex-row gap-4 md:gap-6 p-4 rounded-lg border border-gray-800 bg-[#121212]/70" data-title="{{ lower .title }}">
+            <!-- Thumbnail image - top on mobile, left on desktop -->
+            <div class="md:w-2/5 flex-shrink-0">
+                {{ if .thumbnail }}
+                <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden bg-gray-900">
+                    <img src="{{ .thumbnail }}" alt="{{ .title }}" class="object-cover w-full h-full">
+                </div>
+                {{ else }}
+                <div class="aspect-w-16 aspect-h-9 rounded-lg bg-gray-800 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                    </svg>
+                </div>
+                {{ end }}
+            </div>
+            
+            <!-- Blog content - adjusted width to accommodate larger thumbnail -->
+            <div class="md:w-3/5">
+                <div class="flex justify-between items-start mb-2">
+                    <p class="text-gray-400 text-sm md:text-base">{{ .date }}</p>
+                    
+                    <!-- YouTube button if video exists -->
+                    {{ if .youtube_url }}
+                    <button 
+                        class="youtube-button text-red-500 hover:text-red-400 transition-colors duration-200"
+                        data-youtube-url="{{ .youtube_url }}"
+                        title="Watch video">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                        </svg>
+                    </button>
+                    {{ end }}
+                </div>
+                
+                <a href="{{ .link }}" class="block" target="_blank">
+                    <h3 class="text-xl md:text-2xl font-medium text-blue-400 hover:text-blue-300 transition-colors duration-200 mb-2 md:mb-3">{{ .title }}</h3>
+                </a>
+                <p class="text-sm md:text-base text-gray-400 mb-3 md:mb-4">{{ .summary }}</p>
+                <div class="flex flex-wrap gap-1.5 md:gap-2">
+                    {{ range .tags }}
+                    {{ if ne . "" }}
+                    <span class="px-2 py-0.5 text-xs md:text-sm bg-[#121212] text-gray-100 border border-gray-800 rounded-md transition-all duration-300">{{ . }}</span>
+                    {{ end }}
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+        {{ end }}
+        
+        <!-- No results message -->
+        <div id="no-results" class="hidden text-center py-8">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto mb-4 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <p class="text-xl text-gray-400">No matching blogs found</p>
+            <button id="reset-search" class="mt-4 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors duration-200">Show all blogs</button>
+        </div>
+    </div>
+</div>
+
+<style>
+.aspect-w-16 {
+    position: relative;
+    padding-bottom: 56.25%;
+}
+
+.aspect-w-16 > img,
+.aspect-w-16 > iframe,
+.aspect-w-16 > div,
+.aspect-w-16 > svg {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    /* Stack layout on mobile - thumbnail above content */
+    .group.flex {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* Reset widths for mobile */
+    .md\:w-2\/5, .md\:w-3\/5 {
+        width: 100%;
+    }
+    
+    /* Adjust thumbnail height for mobile */
+    .aspect-w-16 {
+        padding-bottom: 40%; /* Slightly shorter aspect ratio for mobile */
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 375px) {
+    .blog-item {
+        padding: 0.75rem;
+    }
+    
+    .aspect-w-16 {
+        padding-bottom: 45%; /* Slightly taller for very small screens */
+    }
+}
+
+/* Add smooth transition for filtering */
+.blog-item {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.blog-item.hidden {
+    display: none;
+}
+
+/* Search bar focus styles */
+#blog-search:focus {
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // YouTube modal functionality
+    const modal = document.getElementById('youtube-modal');
+    const iframe = document.getElementById('youtube-iframe');
+    const closeButton = document.getElementById('close-modal');
+    const youtubeButtons = document.querySelectorAll('.youtube-button');
+    
+    // Search functionality
+    const searchInput = document.getElementById('blog-search');
+    const blogItems = document.querySelectorAll('.blog-item');
+    const noResults = document.getElementById('no-results');
+    const resetButton = document.getElementById('reset-search');
+    const resultsCount = document.getElementById('search-results-count');
+    const countSpan = document.getElementById('count');
+    
+    // Search blogs function
+    function searchBlogs() {
+        const searchTerm = searchInput.value.toLowerCase().trim();
+        let visibleCount = 0;
+        
+        if (searchTerm === '') {
+            // If search is empty, show all blogs
+            blogItems.forEach(item => {
+                item.classList.remove('hidden');
+            });
+            noResults.classList.add('hidden');
+            resultsCount.classList.add('hidden');
+            return;
+        }
+        
+        // Filter blogs based on search term
+        blogItems.forEach(item => {
+            const title = item.getAttribute('data-title');
+            if (title.includes(searchTerm)) {
+                item.classList.remove('hidden');
+                visibleCount++;
+            } else {
+                item.classList.add('hidden');
+            }
+        });
+        
+        // Show or hide "no results" message
+        if (visibleCount === 0) {
+            noResults.classList.remove('hidden');
+            resultsCount.classList.add('hidden');
+        } else {
+            noResults.classList.add('hidden');
+            resultsCount.classList.remove('hidden');
+            countSpan.textContent = visibleCount;
+        }
+    }
+    
+    // Add event listeners for search
+    searchInput.addEventListener('input', searchBlogs);
+    
+    // Reset search
+    resetButton.addEventListener('click', function() {
+        searchInput.value = '';
+        searchBlogs();
+        searchInput.focus();
+    });
+    
+    function getYoutubeEmbedUrl(url) {
+        // Extract video ID from various YouTube URL formats
+        let videoId = '';
+        if (url.includes('youtube.com/watch')) {
+            videoId = new URL(url).searchParams.get('v');
+        } else if (url.includes('youtu.be/')) {
+            videoId = url.split('youtu.be/')[1].split('?')[0];
+        }
+        
+        if (videoId) {
+            // Use the www.youtube-nocookie.com domain for better privacy and compatibility
+            return `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+        }
+        return null;
+    }
+    
+    youtubeButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const youtubeUrl = this.getAttribute('data-youtube-url');
+            const embedUrl = getYoutubeEmbedUrl(youtubeUrl);
+            
+            if (embedUrl) {
+                // Set the iframe src first, then show the modal
+                iframe.src = embedUrl;
+                
+                // Small delay to ensure iframe loads properly
+                setTimeout(() => {
+                    modal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden'; // Prevent scrolling
+                }, 50);
+            }
+        });
+    });
+    
+    closeButton.addEventListener('click', function() {
+        // Clear the iframe src to stop video
+        iframe.src = '';
+        modal.classList.add('hidden');
+        document.body.style.overflow = ''; // Restore scrolling
+    });
+    
+    // Close on click outside of content
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            iframe.src = '';
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // Close on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+            iframe.src = '';
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+        } else if (e.key === 'Escape' && searchInput.value !== '') {
+            // Clear search on escape if search has value
+            searchInput.value = '';
+            searchBlogs();
+        }
+    });
+});
+</script>
+{{ end }}
