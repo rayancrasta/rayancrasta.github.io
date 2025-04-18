@@ -1,34 +1,48 @@
 {{ define "main" }}
-<div class="w-full md:w-3/4 lg:w-1/2 mx-auto px-4 py-12">
-    <h1 class="text-3xl md:text-5xl font-bold mb-8 md:mb-12">{{ .Title }}</h1>
+<div class="w-full md:w-4/5 lg:w-3/5 mx-auto px-4 md:px-14 py-12">
+<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 md:mb-8">{{ .Title }}</h1>
     
     <!-- Search Bar -->
-    <div class="mb-6 md:mb-8">
+    <div class="mb-6 md:mb-8 relative">
         <input 
             type="text" 
             id="project-search" 
             placeholder="Search projects..." 
-            class="w-full px-4 py-2 rounded-lg bg-[#1E1E1E] border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-gray-600 transition-all duration-300"
+            class="w-full px-4 py-2 pl-10 rounded-lg bg-transparent border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-gray-600 transition-all duration-300"
         >
+        <svg xmlns="http://www.w3.org/2000/svg" class="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+    </div>
+    
+    <!-- Tag Filter Section -->
+    <div class="mb-6 md:mb-8">
+        <div id="tag-filter" class="flex flex-wrap gap-2 justify-start">
+            <!-- Tags will be dynamically populated here -->
+        </div>
     </div>
     
     <!-- YouTube Video Modal -->
-    <div id="youtube-modal" class="fixed inset-0 bg-black/80 z-50 flex items-center justify-center hidden">
-        <div class="relative w-full max-w-4xl mx-auto">
+    <div id="youtube-modal" class="fixed inset-0 bg-black/90 z-50 flex items-center justify-center hidden">
+        <div class="relative w-full max-w-6xl h-[80vh] mx-auto">
             <button id="close-modal" class="absolute -top-10 right-0 text-white hover:text-gray-300">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
             </button>
-            <div class="aspect-w-16 aspect-h-9">
-                <iframe id="youtube-iframe" class="w-full h-full" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="w-full h-full">
+                <iframe id="youtube-iframe" class="w-full h-full rounded-lg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
     </div>
     
-    <div id="projects-grid" class="grid grid-cols-1 gap-6 md:gap-8 max-w-2xl mx-auto">
+    <div id="projects-grid" class="grid grid-cols-1 gap-6 md:gap-8 max-w-xl mx-auto md:mx-0">
         {{ range .Site.Params.projects }}
-        <div class="project-card relative overflow-hidden rounded-lg bg-[#121212] border border-gray-800 transition-all duration-300 group" data-title="{{ lower .title }}">
+        <div 
+            class="project-card relative overflow-hidden rounded-lg bg-[#121212] border border-gray-800 transition-all duration-300 group" 
+            data-title="{{ lower .title }}"
+            data-tags="{{ lower (delimit (split .tech ",") " ") }}"
+        >
             <div class="aspect-w-16 aspect-h-10 overflow-hidden relative">
                 <!-- Image with blur filter, only if image exists -->
                 {{ if ne .image "" }}
@@ -80,37 +94,110 @@
 </div>
 
 <style>
-/* Previous styles remain the same */
-
 @media (max-width: 768px) {
-    /* Increase text sizes for mobile */
     .mobile-text-xl {
-        font-size: 1.5rem; /* Larger title */
+        font-size: 1.5rem;
         line-height: 1.2;
     }
     
     .mobile-text-xs {
-        font-size: 0.875rem; /* Slightly larger small text */
+        font-size: 0.875rem;
     }
     
     .mobile-text-sm {
-        font-size: 1rem; /* Larger description text */
+        font-size: 1rem;
     }
     
     .project-card {
-        max-height: 350px; /* Slightly taller to accommodate larger text */
+        max-height: 350px;
     }
+}
+
+/* Tag Filter Styles */
+.tag-pill {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tag-pill.selected {
+    background-color: #4a4a4a;
+    color: white;
+    border-color: white;
 }
 </style>
 
 <script>
+// The script remains the same as in the previous version
 document.addEventListener('DOMContentLoaded', function() {
     // YouTube modal functionality
     const modal = document.getElementById('youtube-modal');
     const iframe = document.getElementById('youtube-iframe');
     const closeButton = document.getElementById('close-modal');
-    const youtubeButtons = document.querySelectorAll('.youtube-button');
-    
+    const tagFilterContainer = document.getElementById('tag-filter');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    // Extract unique tags from projects
+    const uniqueTags = new Set();
+    projectCards.forEach(card => {
+        const tags = card.getAttribute('data-tags').split(' ');
+        tags.forEach(tag => uniqueTags.add(tag.trim()));
+    });
+
+    // Create tag pills
+    uniqueTags.forEach(tag => {
+        if (tag) {
+            const tagPill = document.createElement('span');
+            tagPill.textContent = tag;
+            tagPill.classList.add('tag-pill', 'px-2.5', 'py-1', 'rounded-full', 'text-xs', 'border', 'border-gray-600', 'text-gray-300', 'hover:bg-gray-700', 'transition-all', 'duration-300');
+            tagFilterContainer.appendChild(tagPill);
+        }
+    });
+
+    // Tag filtering logic
+    const tagPills = document.querySelectorAll('.tag-pill');
+    const selectedTags = new Set();
+
+    tagPills.forEach(pill => {
+        pill.addEventListener('click', function() {
+            // Toggle selection
+            this.classList.toggle('selected');
+            
+            // Update selected tags
+            if (this.classList.contains('selected')) {
+                selectedTags.add(this.textContent.toLowerCase());
+            } else {
+                selectedTags.delete(this.textContent.toLowerCase());
+            }
+
+            // Filter projects
+            filterProjects();
+        });
+    });
+
+    function filterProjects() {
+        const searchTerm = document.getElementById('project-search').value.toLowerCase().trim();
+
+        projectCards.forEach(card => {
+            const title = card.getAttribute('data-title');
+            const cardTags = card.getAttribute('data-tags').toLowerCase().split(' ');
+
+            // Check if no tags are selected or card matches selected tags
+            const tagMatch = selectedTags.size === 0 || 
+                [...selectedTags].some(selectedTag => 
+                    cardTags.some(cardTag => cardTag.includes(selectedTag))
+                );
+
+            // Check search term
+            const searchMatch = searchTerm === '' || title.includes(searchTerm);
+
+            // Show or hide card based on filters
+            card.style.display = (tagMatch && searchMatch) ? 'block' : 'none';
+        });
+    }
+
+    // Search input event listener
+    document.getElementById('project-search').addEventListener('input', filterProjects);
+
     function getYoutubeEmbedUrl(url) {
         // Extract video ID from various YouTube URL formats
         let videoId = '';
@@ -171,24 +258,6 @@ document.addEventListener('DOMContentLoaded', function() {
             modal.classList.add('hidden');
             document.body.style.overflow = '';
         }
-    });
-    
-    // Search functionality
-    const searchInput = document.getElementById('project-search');
-    const projectCards = document.querySelectorAll('.project-card');
-    
-    searchInput.addEventListener('input', function() {
-        const searchTerm = this.value.toLowerCase().trim();
-        
-        projectCards.forEach(card => {
-            const title = card.getAttribute('data-title');
-            
-            if (searchTerm === '' || title.includes(searchTerm)) {
-                card.style.display = 'block';
-            } else {
-                card.style.display = 'none';
-            }
-        });
     });
 });
 </script>

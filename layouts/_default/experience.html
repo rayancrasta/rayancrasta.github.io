@@ -1,5 +1,5 @@
 {{ define "main" }}
-<div class="max-w-4xl mx-auto px-4 py-12">
+<div class="w-full md:w-4/5 lg:w-3/5 mx-auto px-4 md:px-14 py-12">
     {{/* <h1 class="text-3xl xs:text-4xl sm:text-5xl font-bold mb-3 text-gray-100">{{ .Title }}</h1> */}}
     {{/* <div class="mb-12 bg-[#121212] p-8 rounded-lg">
         <div class="intro-section">
@@ -10,13 +10,13 @@
     </div> */}}
 
     <!-- Work Experience Section -->
-    <h2 class="text-3xl font-bold mb-6 text-gray-100">Work Experience</h2>
-    <div class="space-y-8">
+    <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 md:mb-8">{{ .Title }}</h1>
+    <div class="space-y-8 max-w-4xl mx-auto">
         {{ with .Site.Params.experience }}
             {{ range . }}
-            <div class="group relative pl-8 before:content-[''] before:absolute before:left-0 before:top-0 before:w-[2px] before:h-full before:bg-gray-700 before:rounded-full">
-                <div class="absolute -left-1.5 top-0 w-2 h-2 bg-gray-700 rounded-full"></div>
-                <div class="p-6 rounded-lg bg-[#121212] transition-all duration-300">
+            <div class="group relative pl-4 md:pl-8 before:content-[''] before:absolute before:left-0 before:top-0 before:w-[2px] before:h-full before:bg-gray-700 before:rounded-full">
+    <div class="absolute -left-1.5 top-0 w-2 h-2 bg-gray-700 rounded-full"></div>
+    <div class="p-4 md:p-6 rounded-lg bg-[#121212] transition-all duration-300">
                     <div class="flex-grow">
                         {{ if .company }}
                             <div class="text-gray-400 text-lg sm:text-xl font-medium">{{ .company }}</div>
