@@ -1,0 +1,196 @@
+baseURL = "https://rayancrasta.com/"
+languageCode = 'en-us'
+title = 'Rayan Crasta'
+theme = "hugo-noir"
+
+# URL handling
+relativeURLs = true
+canonifyURLs = true
+
+# Taxonomy configuration
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[params]
+name = "Rayan Crasta"
+location = "Leeds, UK"
+description = "Software Engineer. I love solving problems and building software around them."
+profile_image = "/images/profile/profile.png"
+github = "https://github.com/rayancrasta/"
+github_username = "rayancrasta"
+email = "rayancrasta95@gmail.com"
+medium = "https://medium.com/@rayancr"
+linkedin = "https://www.linkedin.com/in/rayan-crasta/"
+linkedin_username = "rayan-crasta"
+leetcode = "https://leetcode.com/u/crasta_codes/"
+leetcode_username = "crasta_codes"
+
+# Added Education Section
+[[params.education]]
+institution = "University of Leicester"
+degree = "MSc Cloud Computing"
+period = "Sep 2023 - Sep 2024"
+location = "Leicester, United Kingdom"
+
+
+[[params.education]]
+institution = "University of Mumbai"
+degree = "B.E in Information Technology"
+period = "Aug 2017 - May 2021"
+location = "Mumbai, India" 
+
+[[params.experience]]
+company = "Tata Consultancy Services"
+role = "Assistant Systems Engineer"
+period = "Jun 2021 - Aug 2023 :  Mumbai, India"
+logo = "/images/company/ipsum.png"
+description = "Implemented server security configurations, supported frontend web development, and assisted with data encryption and transfer processes, contributing to improved system efficiency and security compliance."
+responsibilities = [
+    "Automated security hardening and configuration of 100+ Linux servers using Bash scripts and Python, reducingcompliance time by 900+ hours",
+    "Optimized data ingestion workflows by streamlining upload channels, improving efficiency and reliability.",
+    "and lot more."
+]
+
+[[params.experience]]
+company = "Qustac Technologies Pvt. Ltd"
+role = "Android Development Intern"
+period = "Mar 2020 – Jan 2021:  Mumbai, India"
+logo = "/images/company/dolor.png"
+description = "Engineered an Android application that employs TensorFlow Lite to perform real-time classification and automated handling of explicit imagery on mobile devices."
+responsibilities = [
+    "Developed an Android application using Android Studio and Java, integrating TensorFlow Lite for real-time classification of explicit and non-explicit images on Android devices.",
+    "Integrated a streamlined machine learning model to facilitate automatic actions upon detecting explicit images."
+]
+
+[[params.projects]]
+title = "Dhundra"
+description = "A self hosted resume tailoring and tracking tool for you powered by GPT4. Over 500 resumes generated for less than a dollar."
+tech = "FastAPI, Python, ReactJS, PostgreSQL"
+image = "/images/projects/dhundrathumbnail.png"
+youtube_url = "https://youtu.be/QFGxYTAr_hg"
+link = "https://github.com/rayancrasta/Dhundra"
+
+[[params.projects]]
+title = "Privatizeit"
+description = "Sensitive data tokenization and masking API, built with FastAPI for privacy"
+tech = "Python, FastAPI"
+image = "/images/projects/privatizeitthumbnail.png"
+link = "https://github.com/rayancrasta/PrivatizeIt"
+
+[[params.projects]]
+title = "MyShowSeat"
+description = "Prototype of a booking service like major cinema and event booking sites like Ticketmaster and BookMyShow."
+tech = "Go, Redis, PostgreSQL "
+youtube_url = "https://youtu.be/sHuBaUvi8wk"
+image = "/images/projects/myshowseatthumbnail.png"
+link = "https://github.com/rayancrasta/MyShowSeat"
+
+[[params.projects]]
+title = "TweetOps"
+description = "Twitter-like ingestion backend prototype using Go, FastAPI, Kafka, PostgreSQL and Elasticsearch with a profanity checker that flags tweets as safe or unsafe that help during searches."
+tech = "Go, Python , FastAPI , PostgreSQL, Elasticsearch , Kafka"
+image = "/images/projects/tweetopsthumbnail.png"
+link = "https://github.com/rayancrasta/TweetOps"
+
+[[params.projects]]
+title = "Tensorflow lite Meme classifier"
+description = "Android app that classifies whether the image is a Meme or Not a Meme using Tensorflow Lite. (Prototype for a major project which classifies explicit images in realtime and quarantines it)"
+tech = "Python, Android, ML , Java"
+image = "/images/projects/memethumbnail.png"
+link = "https://github.com/rayancrasta/Meme-vs-Non-Meme-Android-App-Using-TFlite"
+
+[[params.blogs]]
+title = "How I use AI to control my browser for my job hunt."
+date = "2025-03-21"
+summary = "Implemented BrowserUse a framework to use AI(LLMs) to control your browser for searching for jobs for a specific company in my application Dhundra 2.0"
+tags = ["AI", "Web","FastAPI","Python","ReactJS"]
+link = "https://medium.com/@rayancr/how-i-use-ai-to-control-my-browser-for-my-job-hunt-54ec3fe5d9ca"
+thumbnail = "/images/blogs/browserusethumbnail.png" 
+youtube_url = "https://youtu.be/jxPjHElmaWQ?si=7stXTSWsD6a9H2Iq"  
+
+[[params.blogs]]
+title = "FastAPI internals in 10 mins"
+date = "2025-03-20"
+summary = "Needed to refresh some FastAPI internals before an interview in 10mins. So I made one."
+tags = ["Python", "FastAPI"]
+thumbnail = "/images/blogs/fastapiinternals.png" 
+link = "https://medium.com/@rayancr/fastapi-internals-in-10-mins-03183127832c"
+
+[[params.blogs]]
+title = "Building a tweet ingestion and search backend like Twitter "
+date = "2024-05-20"
+summary = "Built a scalable tweet ingestion and search backend using Go, Kafka, and Elasticsearch, handling real-time data and safe content filtering."
+tags = ["Go", "Kafka", "Elasticsearch", "Social Media"]
+thumbnail = "/images/blogs/tweetopss.png"
+youtube_url = "https://youtu.be/f7aGnl5uwgc"  
+link = "https://medium.com/@rayancr/building-a-tweet-ingestion-and-search-backend-like-twitter-using-go-kafka-and-elasticsearch-608b32e68252"
+
+[[params.blogs]]
+title = "Building a booking service backend like Ticketmaster / BookMyShow "
+date = "2024-05-20"
+summary = "Built a robust booking service backend like Ticketmaster using Go, Redis, and PostgreSQL, optimized for high traffic and real-time seat reservation"
+tags = ["Go", "PostgreSQL", "Redis", "Booking Systems"]
+thumbnail = "/images/blogs/myshowseatthumbnail.png" 
+youtube_url = "https://youtu.be/sHuBaUvi8wk" 
+link = "https://medium.com/@rayancr/building-a-booking-service-backend-like-ticketmaster-and-bookmyshow-using-go-redis-and-postgresql-a4caa1f1105e"
+
+[[params.blogs]]
+title = "Building a Realtime Collaborative Whiteboard"
+date = "2024-04-20"
+summary = "rchitecture and implementation of a real-time collaborative whiteboard using NodeJS, MongoDB, Nginx, and Redis, featuring seamless drawing updates and robust system consistency."
+tags = ["NodeJS", "MongoDB", "Nginx", "Redis", "Collaboration"]
+thumbnail = "/images/blogs/whiteboard.png"
+youtube_url = "https://youtu.be/FiFDx6iMiZs" 
+link = "https://medium.com/@rayancr/realtime-collaborative-whiteboard-using-nodejs-mongodb-nginx-lb-and-redis-a0f1d29a1462"
+
+[[params.blogs]]
+title = "SSH certificates in Linux — Step by Step Guide"
+date = "2023-05-20"
+summary = "SSH certificate-based authentication in Linux with this step-by-step guide, enhancing security and simplifying management"
+tags = ["Security", "Authentication", "Linux"]
+thumbnail = "/images/blogs/sshprt2.png" 
+link = "https://medium.com/@rayancr/ssh-certificates-in-linux-step-by-step-guide-36fe61097ed2"
+
+[[params.blogs]]
+title = "SSH certificate authentication — Better than keys?"
+date = "2023-04-16"
+summary = "Explore SSH certificates as an advanced alternative to traditional key-based authentication, offering enhanced security and flexibility"
+tags = ["Security", "Authentication"]
+thumbnail = "/images/blogs/sshprt1.png" 
+link = "https://medium.com/@rayancr/ssh-certificate-authentication-better-than-keys-4261b2a17125"
+
+[[params.blogs]]
+title = "SFTP Setup using Password and Key based 2FA Authentication"
+date = "2022-06-01"
+summary = "Set up SFTP with 2FA by integrating password and key-based authentication on CentOS, enhancing security for file transfers"
+tags = ["Security", "Authentication", "Linux"]
+thumbnail = "/images/blogs/sftp2.png" 
+link = "https://medium.com/@rayancr/sftp-setup-using-password-and-key-based-2fa-authentication-7caf11899299"
+
+[[params.blogs]]
+title = "Linux SSH Key + Password Auth for Users Stored in Active Directory"
+date = "2022-06-12"
+summary = "Enhancing SSH security on Linux with a 2FA setup using key and password authentication integrated with Active Directory."
+tags = ["Security", "Authentication", "Linux", "Active Directory"]
+thumbnail = "/images/blogs/sftp1.png" 
+link = "https://medium.com/@rayancr/linux-ssh-key-password-auth-for-users-stored-in-active-directory-949765e4c774"
+
+
+[menu]
+  [[menu.main]]
+    name = "Experience"
+    url = "/experience/"
+    weight = 1
+  [[menu.main]]
+    name = "Projects"
+    url = "/projects/"
+    weight = 2
+  [[menu.main]]
+    name = "Blogs"
+    url = "/blogs/"
+    weight = 3
+  [[menu.main]]
+    name = "Contact Me"
+    url = "/contact/"
+    weight = 4
