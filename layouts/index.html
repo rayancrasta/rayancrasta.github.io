@@ -8,7 +8,7 @@
         <div class="max-w-3xl ml-0 p-4 pb-2 border border-gray-00 rounded-lg bg-[#121212] shadow-lg relative">
             
             <div class="text-left">
-                <h1 class="text-4xl font-bold mb-2">{{ .Site.Params.name }}</h1>
+                <h1 class="text-3xl font-bold mb-2">{{ .Site.Params.role }}</h1>
                 <p class="text-gray-400 mb-3 flex items-center text-xl">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="-7 -2 24 24"><path fill="gray" d="M4 9.9A5.002 5.002 0 0 1 5 0a5 5 0 0 1 1 9.9V19a1 1 0 0 1-2 0V9.9zM5 8a3 3 0 1 0 0-6a3 3 0 0 0 0 6z"/></svg>
                     {{ .Site.Params.location }}
@@ -40,7 +40,7 @@
 
     <!-- tech stack here -->
     <section class="mb-20">
-        <h2 class="text-4xl font-bold mb-2 relative">What I work with</h2>
+        <h2 class="text-3xl font-bold mb-2 relative">What I work with</h2>
         <div class="tech-carousel">
             <!-- Row 1 - Forward animation -->
             <div class="carousel-container">
@@ -145,7 +145,7 @@
     </section>
 
     <section>
-        <h2 class="text-4xl font-bold mb-5">Experience</h2>
+        <h2 class="text-3xl font-bold mb-5">Experience</h2>
         <div class="space-y-8 max-w-3xl mx-auto">
             {{ range $index, $exp := .Site.Params.experience }}
             <div class="relative pl-8 before:content-[''] before:absolute before:left-0 before:top-0 before:w-[2px] before:h-full before:bg-gray-700 before:rounded-full">
@@ -166,7 +166,7 @@
     <!-- Projects Section -->
     <section class="mt-12 md:mt-20 mb-12 md:mb-20">
         <div class="flex justify-between items-center mb-6 md:mb-8">
-            <h2 class="text-4xl font-bold mb-5">Projects</h2>
+            <h2 class="text-3xl font-bold mb-5">Projects</h2>
         </div>
 
         <!-- Updated grid with better content display -->
@@ -210,7 +210,7 @@
     <!-- Blog Section -->
     <section class="mt-20 mb-20">
         <div class="flex justify-between items-center mb-8">
-            <h2 class="text-4xl font-bold">Blogs</h2>
+            <h2 class="text-3xl font-bold">Blogs</h2>
         </div>
         <div class="space-y-8 max-w-3xl mx-auto">
             {{ range first 3 .Site.Params.blogs }}

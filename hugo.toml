@@ -14,6 +14,7 @@ canonifyURLs = true
 
 [params]
 name = "Rayan Crasta"
+role = "Software Engineer"
 location = "Leeds, UK"
 description = "Software Engineer. I love solving problems and building software around them."
 profile_image = "/images/profile/profile.png"
