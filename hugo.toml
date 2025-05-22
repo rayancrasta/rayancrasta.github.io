@@ -65,7 +65,7 @@ responsibilities = [
 ]
 
 [[params.projects]]
-title = "Dhundra"
+title = "Dhundra 1.0 (Old)"
 description = "A self hosted resume tailoring and tracking tool for you powered by GPT4. Over 500 resumes generated for less than a dollar."
 tech = "FastAPI, Python, ReactJS, PostgreSQL"
 image = "/images/projects/dhundrathumbnail.png"
@@ -192,6 +192,10 @@ link = "https://medium.com/@rayancr/linux-ssh-key-password-auth-for-users-stored
     url = "/blogs/"
     weight = 3
   [[menu.main]]
+    name = "Dhundra"
+    url = "/dhundra/"
+    weight = 4
+  [[menu.main]]
     name = "Contact Me"
     url = "/contact/"
-    weight = 4
+    weight = 5
