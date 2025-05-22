@@ -65,6 +65,13 @@ responsibilities = [
 ]
 
 [[params.projects]]
+title = "Dhundra AI"
+description = "AI-Powered Resume Tailoring & Job Tracking Tool"
+tech = "FastAPI, Python, ReactJS, PostgreSQL, Redis"
+image = "/images/projects/dhundraai.png"
+link = "/dhundra"
+
+[[params.projects]]
 title = "Dhundra 1.0 (Old)"
 description = "A self hosted resume tailoring and tracking tool for you powered by GPT4. Over 500 resumes generated for less than a dollar."
 tech = "FastAPI, Python, ReactJS, PostgreSQL"
