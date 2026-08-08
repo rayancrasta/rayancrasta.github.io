@@ -79,6 +79,13 @@ responsibilities = [
 ]
 
 [[params.projects]]
+title = "MindIt"
+description = "A lightweight ADO-style work tracker (Feature -> Story -> Task/Bug) usable via a Claude Code MCP server or a drag-and-drop web UI, with plain markdown files as the single source of truth."
+tech = "TypeScript, React, Vite, Tailwind, Node.js, MCP"
+image = "/images/projects/minditlogo.svg"
+link = "https://github.com/rayancrasta/MindIt"
+
+[[params.projects]]
 title = "Dhundra AI"
 description = "AI-Powered Resume Tailoring & Job Tracking Tool"
 tech = "FastAPI, Python, ReactJS, PostgreSQL, Redis"
